@@ -10,7 +10,7 @@
 
     <style type="text/css" rel="stylesheet">
             html , body{
-                overflow: scroll;
+                overflow: auto;
             }
 
         .am-nav-tabs > li.am-active > a, .am-nav-tabs > li.am-active > a:focus, .am-nav-tabs > li.am-active > a:hover{
@@ -54,6 +54,9 @@
             height: 200px;
         }
 
+        .margin-auto{
+            margin: 0 auto;
+        }
     </style>
 </head>
 <body>
@@ -534,192 +537,163 @@
                 <!--证件审核-->
                 <div class="am-margin-bottom-lg">
 
-                        <div class="am-g am-margin-bottom-0">
-                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                                <div class="am-input-group am-input-group-sm am-form-file">
-                                <span class="am-input-group-label">
+                        <div class="am-g">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file margin-auto">
+                                <span class="am-input-group-label ">
                                  身份证正面:
                                  </span>
                                     <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
                                         <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
                                     <input id="IDCard_face" class="am-form-field " accept="image/*" type="file" multiple>
                                 </div>
-                            </div>
-                        </div>
-                        <div class="am-g am-margin-bottom">
-                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                                <div class="info-img">
-                                    <img id="img_IDCard_face" src="" alt="身份证正面"/>
+                                <div class="am-g am-margin-left-0">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-6">
+                                        <div class="info-img">
+                                            <img id="img_IDCard_face" src="" alt="身份证正面"/>
+                                        </div>
+                                    </div>
                                 </div>
                             </div>
-                        </div>
 
-
-
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file">
                                 <span class="am-input-group-label">
                                  身份证背面:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="IDCard_back" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="IDCard_back" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_IDCard_back" src="" alt="身份证背面"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_IDCard_back" src="" alt="身份证背面"/>
-                            </div>
-                        </div>
-                    </div>
 
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file margin-auto">
                                 <span class="am-input-group-label">
                                  &emsp;学历证:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="diploma" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="diploma" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_diploma" src="" alt="学历证"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_diploma" src="" alt="学历证"/>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file">
                                 <span class="am-input-group-label">
                                  &emsp;职称证:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="certificate" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="certificate" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_certificate" src="" alt="职称证"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_certificate" src="" alt="职称证"/>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file margin-auto">
                                 <span class="am-input-group-label">
                                  照&emsp;&emsp;片:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="photo" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="photo" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_photo" src="" alt="照片"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_photo" src="" alt="照片"/>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file">
                                 <span class="am-input-group-label">
                                  离职证明:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="leave_proof" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="leave_proof" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_leave_proof" src="" alt="离职证明"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_leave_proof" src="" alt="离职证明"/>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file margin-auto">
                                 <span class="am-input-group-label">
-                                 <small>个人信用报告:</small>
+                                 个人信用报告:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="personal_credit" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="personal_credit" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_personal_credit" src="" alt="个人信用报告"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_personal_credit" src="" alt="个人信用报告"/>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 ">
+                                <div class="am-input-group am-input-group-sm am-form-file">
                                 <span class="am-input-group-label">
-                                 <small>无犯罪证明:</small>
+                                 无犯罪证明:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="no_crime" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="no_crime" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_no_crime" src="" alt="无犯罪证明"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                        </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_no_crime" src="" alt="无犯罪证明"/>
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="am-g">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="am-input-group am-input-group-sm am-form-file">
+                            <div class="am-u-sm-12 am-u-md-6 am-u-lg-6 am-u-end">
+                                <div class="am-input-group am-input-group-sm am-form-file margin-auto">
                                 <span class="am-input-group-label">
-                                 <small>体检报告:</small>
+                                 体检报告:
                                  </span>
-                                <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
-                                    <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
-                                <input id="check" class="am-form-field " accept="image/*" type="file" multiple>
+                                    <button type="button" class="am-btn am-btn-default am-btn-sm am-vertical-align-bottom">
+                                        <i class="am-icon-cloud-upload"></i> 选择要上传的文件</button>
+                                    <input id="check" class="am-form-field " accept="image/*" type="file" multiple>
+                                </div>
+                                <div class="am-g am-margin-bottom">
+                                    <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 ">
+                                        <div class="info-img">
+                                            <img id="img_check" src="" alt="体检报告"/>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="am-g am-margin-bottom">
-                        <div class="am-u-sm-12 am-u-md-6 am-u-lg-4 am-u-sm-centered">
-                            <div class="info-img">
-                                <img id="img_check" src="" alt="体检报告"/>
-                            </div>
-                        </div>
-                    </div>
 
                     <div class="am-g">
                         <div class="am-u-sm-12 am-u-md-8 am-u-lg-6 am-u-sm-centered">
