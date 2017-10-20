@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>数据信息</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+
+    <link rel="stylesheet" href="../css/amazeui.min.css"/>
+    <link rel="stylesheet" href="../css/style.css"/>
+</head>
+<body>
+    <div class="am-container am-margin-top-lg am-text-primary">
+        <div id="link" style="height: 400px;width: 800px;"></div>
+    </div>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script type="text/javascript">
+    // 路径配置
+    require.config({
+        paths: {
+            echarts: 'http://echarts.baidu.com/build/dist'
+        }
+    });
+    //可切换一 柱状图
+    require(
+        [
+            'echarts',
+            'echarts/chart/bar' // 使用柱状图就加载bar模块，按需加载
+        ],
+        function (et) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = et.init(document.getElementById('link'));
+
+            option_1 = {
+                color:[],
+                title: {
+                    text: '每月办结受理量',
+                    subtext: '（单位/个）',
+                    textStyle: {
+                        fontWeight: 'normal',              //标题颜色
+                        color: '#FFF'
+                    }
+                },
+                tooltip: {
+                    trigger: 'axis'
+                },
+                legend: {
+                    data: [{name:'受理量',
+                                textStyle:{
+                                    color:'#fff'
+                                }
+                            },
+                            {name:'办结量',
+                                textStyle:{
+                                    color:'#fff'
+                                }
+                            } ]
+                },
+                toolbox: {
+                    show: true,
+                    feature: {
+//                        mark: {show: true},
+//                        dataView: {show: true, readOnly: false},
+                        magicType: {show: true, type: ['line', 'bar']},
+//                        restore: {show: true},
+                        saveAsImage: {show: true}
+                    }
+                },
+                calculable: true,
+                xAxis: [
+                    {
+                        type: 'category',
+                        data: ['1月', '2月', '3月', '4月', '5月', '6月', '7月', '8月', '9月'],
+                        axisLabel:{
+                            textStyle:{
+                                color:'white'
+                            }
+                        }
+                    }
+                ],
+                yAxis: [
+                    {
+                        type: 'value',
+                        axisLabel:{
+                            textStyle:{
+                                color:'white'
+                            }
+                        }
+                    }
+                ],
+                series: [
+                    {
+                        name: '受理量',
+                        type: 'bar',
+                        data: [37,30,72,95,118,106,125,150,132],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        },
+                        markLine: {
+                            data: [
+                                {type: 'average', name: '平均值'}
+                            ]
+                        }
+                    },
+                    {
+                        name: '办结量',
+                        type: 'bar',
+                        data: [22,31,54,87,102,101,128,135,98],
+                        markPoint: {
+                            data: [
+                                {type: 'max', name: '最大值'},
+                                {type: 'min', name: '最小值'}
+                            ]
+                        },
+                        markLine: {
+                            data: [
+                                {type: 'average', name: '平均值'}
+                            ]
+                        }
+                    }
+                ]
+            };
+            myChart.setOption(option_1);
+        }
+    );
+    //可切换一 折线图
+    require(
+        [
+            'echarts',
+            'echarts/chart/line' // 使用折线图就加载bar模块，按需加载
+        ],
+        function (et) {
+            // 基于准备好的dom，初始化echarts图表
+            var myChart = et.init(document.getElementById('link'));
+
+            myChart.setOption(option_1);
+        }
+    );
+</script>
+</body>
+</html>
