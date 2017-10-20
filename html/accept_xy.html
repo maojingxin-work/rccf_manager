@@ -1,0 +1,282 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>信用业务受理单</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="icon" type="image/png" href="../i/logo.png">
+    <link rel="stylesheet" href="../css/amazeui.min.css" media="all"/>
+    <link rel="stylesheet" href="../css/admin.css" media="all"/>
+    <script src="../js/jquery.min.js"></script>
+    <script src="../js/printarea.js"></script>
+
+    <style type="text/css">
+
+
+        .table_list {
+            width: 800px;
+            margin: 0 auto;
+            overflow: auto;
+        }
+
+        .all-border {
+            border: solid 0.08em #eeeeee;
+        }
+
+        .table-border {
+            border-left: solid .08em #eee;
+        }
+
+        .bottom-border {
+            padding: 0.32em;
+            border-bottom: dashed 0.1em #eeeeee;
+        }
+
+    </style>
+</head>
+<body>
+<div id="print" class="admin-content table_list ">
+
+    <!--表头-->
+    <header>
+        <div class="am-text-center">
+            <h2>信用业务受理单</h2>
+        </div>
+        <div class="am-text-right">
+            <small>编号：<span>20170706-667</span></small>
+        </div>
+    </header>
+    <!--业务员信息-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-4" style="font-size: 100px;">
+                销售经理：&emsp;<span>周志海</span>
+            </div>
+            <div class="am-u-lg-4">
+                销售总监：&emsp;<span>高波</span>
+            </div>
+            <div class="am-u-lg-4">
+                市场专员：&emsp;<span>王晓飞</span>
+            </div>
+        </div>
+    </div>
+    <!--客户信息-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-1 am-text-center am-margin-top-lg ">
+                <span class="">客户信息</span>
+            </div>
+            <div class="am-u-lg-11 table-border">
+                <div class="am-g bottom-border">
+                    <div class="am-u-lg-3 ">
+                        姓名/企业：&emsp;<span>许海峰</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        联系电话：&emsp;<span>18610946796</span>
+                    </div>
+                    <div class="am-u-lg-5">
+                        房屋地址：&emsp;<small>昌平天通中苑56号楼2001</small>
+                    </div>
+                </div>
+                <div class="am-g bottom-border">
+                    <div class="am-u-lg-2">
+                        朝向：&emsp;<span>西南</span>
+                    </div>
+                    <div class="am-u-lg-3">
+                        面积：&emsp;<span>102.27㎡</span>
+                    </div>
+                    <div class="am-u-lg-2">
+                        楼层：&emsp;<span>20层</span>
+                    </div>
+                    <div class="am-u-lg-3">
+                        房屋性质：&emsp;<span>住宅</span>
+                    </div>
+                    <div class="am-u-lg-2">
+                        其他：&emsp;<span>无</span>
+                    </div>
+                </div>
+                <div class="am-g ">
+                    <div class="am-u-lg-4">
+                        评估单价：&emsp;<span>42000/㎡</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        评估总价：&emsp;<span>450万</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        预计贷款金额：&emsp;<span>30万</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--材料清单-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-1 am-text-center am-margin-top-xl ">
+                <span class="">材料清单</span>
+            </div>
+            <div class="am-u-lg-11 ">
+                <div class="am-g ">
+                    <div class="am-u-lg-6 am-text-center table-border">
+                        已有清单
+                    </div>
+                    <div class="am-u-lg-6 am-text-center table-border">
+                        待补材料
+                    </div>
+                </div>
+                <div class="am-g">
+                    <div class="am-u-lg-6 all-border" style="height: 7em;">
+                        身份证、户口本
+                    </div>
+                    <div class="am-u-lg-6 all-border" style="height: 7em;">
+                        房产证、结婚证
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--市场受理方案-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-1 am-text-center  ">
+                <span class="">市场受理方案</span>
+            </div>
+            <div class="am-u-lg-11 table-border">
+                <div class="bottom-border" style="height: 2.5em;">
+                    受理方案：&emsp;<span>无抵押、高息</span>
+                </div>
+                <div class="am-padding-top-xs" style="height: 2.5em;">
+                    跟踪情况：&emsp;<span></span>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--收费明细-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-1 am-text-center am-margin-top-lg ">
+                <span class="">收费明细</span>
+            </div>
+            <div class="am-u-lg-11 table-border">
+                <div class="am-g bottom-border">
+                    <div class="am-u-lg-3 ">
+                        服务费比例/费用：&emsp;<small>20000/4天</small>
+                    </div>
+                    <div class="am-u-lg-3">
+                        渠道费用：&emsp;&emsp;&emsp;<small>20000/4天</small>
+                    </div>
+                    <div class="am-u-lg-3">
+                        联系方式：&emsp;<small>18610946796</small>
+                    </div>
+                    <div class="am-u-lg-3">
+                        账号：&emsp;<small>18610946796123456</small>
+                    </div>
+                </div>
+                <div class="am-g bottom-border">
+                    <div class="am-u-lg-4">
+                        材料费收费：&emsp;<span>500元</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        材料费成本：&emsp;<span>500元</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        材料费利润：&emsp;<span>500元</span>
+                    </div>
+                </div>
+                <div class="am-g ">
+                    <div class="am-u-lg-4">
+                        三方收费：&emsp;<span>42000/㎡</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        三方成本：&emsp;<span>450万</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        三方利润：&emsp;<span>30万</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!--定金-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-1 am-text-center ">
+                <span class="">定金</span>
+            </div>
+            <div class="am-u-lg-11 table-border">
+                <div class="am-g ">
+                    <div class="am-u-lg-4">
+                        金额：&emsp;<span>20000</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        收款确认：&emsp;<span>高波</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        日期：&emsp;<span>2017.7.26</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--尾款-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-1 am-text-center ">
+                <span class="">尾款</span>
+            </div>
+            <div class="am-u-lg-11 table-border">
+                <div class="am-g ">
+                    <div class="am-u-lg-4">
+                        金额：&emsp;<span>20000</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        收款确认：&emsp;<span>高波</span>
+                    </div>
+                    <div class="am-u-lg-4">
+                        日期：&emsp;<span>2017.7.26</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--审核签字-->
+    <div class="am-icon-border">
+        <div class="am-g ">
+            <div class="am-u-lg-1 am-text-center am-margin-top-sm ">
+                <span class="">审核签字</span>
+            </div>
+            <div class="am-u-lg-11 table-border">
+                <div class="am-g bottom-border">
+                    <div class="am-u-lg-3">
+                        销售经理：&emsp;<span>周志海</span>
+                    </div>
+                    <div class="am-u-lg-3">
+                        销售总监：&emsp;<span>高波</span>
+                    </div>
+                    <div class="am-u-lg-3">
+                        市场专员：&emsp;<span>王晓飞</span>
+                    </div>
+                    <div class="am-u-lg-3">
+                        领导签字：&emsp;<span>郭总</span>
+                    </div>
+                </div>
+                <div class="am-g ">
+                    <div class="am-u-lg-12">
+                        特批申请：&emsp;<span>无</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<button id="printto" style="position: absolute;top:100px;">点击打印本页</button>
+<script>
+
+    $('#printto').click(function () {
+        $('#print').printArea();
+    });
+</script>
+</body>
+</html>

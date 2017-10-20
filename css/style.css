@@ -20,3 +20,16 @@ td,th{
 .am-selected > .am-btn-default {
     color: #FFFFFF;
 }
+
+summary {
+    cursor: pointer;
+}
+.am-g .am-input-group-label{
+    width: 8em;
+}
+.summary-title{
+    background-color: #1a1a1a;
+    color: #FFFFFF;
+    margin-bottom: 2rem;
+}
+

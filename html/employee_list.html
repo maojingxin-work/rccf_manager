@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="../css/app.css">
     <link rel="stylesheet" href="../css/style.css">
     <script src="../js/jquery.min.js"></script>
+    <script src="../js/jquery.PrintArea.js"></script>
 </head>
 <body>
 <div class="am-g">
@@ -69,111 +70,57 @@
                                       </span>
                                 </div>
                             </div>
+                            <div class="am-u-sm-12 am-u-md-12 am-u-lg-3">
+                                <div class="am-input-group am-input-group-sm tpl-form-border-form cl-p">
+                                    <input type="text" class="am-form-field ">
+                                    <span class="am-input-group-btn">
+                                        <button class="am-btn  am-btn-default am-btn-success tpl-table-list-field " id="print"
+                                                type="button">
+                                            打印本页表格
+                                        </button>
+                                      </span>
+                                </div>
+                            </div>
                             <!--表格区域-->
-                            <div class="am-u-sm-12">
+                            <div class="am-u-sm-12" id="print_area">
                                 <table width="100%"
                                        class="am-table am-text-nowrap am-table-compact  am-table-striped tpl-table-black ">
                                     <thead>
                                     <tr>
-                                        <th>文章标题</th>
-                                        <th>作者</th>
-                                        <th>时间</th>
+                                        <th>员工编号</th>
+                                        <th>员工姓名</th>
+                                        <th>性别</th>
+                                        <th>联系方式</th>
+                                        <th>所属部门</th>
+                                        <th>职务</th>
+                                        <th>副总监</th>
+                                        <th>总监</th>
                                         <th>操作</th>
                                     </tr>
                                     </thead>
                                     <tbody id="employee_list">
-                                    <tr class="gradeX">
-                                        <td>Amaze UI 模式窗口</td>
-                                        <td>张鹏飞</td>
-                                        <td>2016-09-26</td>
+                                    <tr>
+                                        <td>10001</td>
+                                        <td>张三</td>
+                                        <td>男</td>
+                                        <td>13878982222</td>
+                                        <td>金融一部</td>
+                                        <td>财务顾问</td>
+                                        <td>李四</td>
+                                        <td>王五</td>
                                         <td>
-                                            <div class="tpl-table-black-operation">
-                                                <a href="javascript:;">
-                                                    <i class="am-icon-pencil"></i> 编辑
-                                                </a>
-                                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                                    <i class="am-icon-trash"></i> 删除
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>有适配微信小程序的计划吗</td>
-                                        <td>天纵之人</td>
-                                        <td>2016-09-26</td>
-                                        <td>
-                                            <div class="tpl-table-black-operation">
-                                                <a href="javascript:;">
-                                                    <i class="am-icon-pencil"></i> 编辑
-                                                </a>
-                                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                                    <i class="am-icon-trash"></i> 删除
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="gradeX">
-                                        <td>请问有没有amazeui 分享插件</td>
-                                        <td>王宽师</td>
-                                        <td>2016-09-26</td>
-                                        <td>
-                                            <div class="tpl-table-black-operation">
-                                                <a href="javascript:;">
-                                                    <i class="am-icon-pencil"></i> 编辑
-                                                </a>
-                                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                                    <i class="am-icon-trash"></i> 删除
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>关于input输入框的问题</td>
-                                        <td>着迷</td>
-                                        <td>2016-09-26</td>
-                                        <td>
-                                            <div class="tpl-table-black-operation">
-                                                <a href="javascript:;">
-                                                    <i class="am-icon-pencil"></i> 编辑
-                                                </a>
-                                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                                    <i class="am-icon-trash"></i> 删除
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <tr class="even gradeC">
-                                        <td>有没有发现官网上的下载包不好用</td>
-                                        <td>醉里挑灯看键</td>
-                                        <td>2016-09-26</td>
-                                        <td>
-                                            <div class="tpl-table-black-operation">
-                                                <a href="javascript:;">
-                                                    <i class="am-icon-pencil"></i> 编辑
-                                                </a>
-                                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                                    <i class="am-icon-trash"></i> 删除
-                                                </a>
-                                            </div>
+                                            <a class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+                                                    class="am-icon-pencil-square-o"></span> 详情
+                                            </a>
+                                            <a href="" class="am-btn am-btn-default am-btn-xs"><span
+                                                    class="am-icon-copy"></span> 编辑
+                                            </a>
+                                            <a class="am-btn am-btn-default am-btn-xs am-text-danger">
+                                                <span class="am-icon-trash-o"></span> 删除
+                                            </a>
                                         </td>
                                     </tr>
 
-                                    <tr class="even gradeC">
-                                        <td>我建议WEB版本文件引入问题</td>
-                                        <td>罢了</td>
-                                        <td>2016-09-26</td>
-                                        <td>
-                                            <div class="tpl-table-black-operation">
-                                                <a href="javascript:;">
-                                                    <i class="am-icon-pencil"></i> 编辑
-                                                </a>
-                                                <a href="javascript:;" class="tpl-table-black-operation-del">
-                                                    <i class="am-icon-trash"></i> 删除
-                                                </a>
-                                            </div>
-                                        </td>
-                                    </tr>
-                                    <!-- more data -->
                                     </tbody>
                                 </table>
                             </div>
@@ -197,72 +144,209 @@
 <script src="../js/app.js"></script>
 
 <script>
-    $(function () {
-        var data = ["北京", "上海", "广州", "深圳", "杭州", "长沙", "合肥", "宁夏", "成都", "西安", "南昌", "上饶", "沈阳", "济南", "厦门", "福州", "九江", "宜春", "赣州", "宁波", "绍兴", "无锡", "苏州", "徐州", "东莞", "佛山", "中山", "成都", "武汉", "青岛", "天津", "重庆", "南京", "九江", "香港", "澳门", "台北"];
-        var nums = 5; //每页出现的数量
-        var pages = Math.ceil(data.length / nums); //得到总页数
 
-        var thisDate = function (curr) {
-            //此处只是演示，实际场景通常是返回已经当前页已经分组好的数据
-            var str = '',
-                last = curr * nums - 1;
-            last = last >= data.length ? (data.length - 1) : last;
-            for (var i = (curr * nums - nums); i <= last; i++) {
-                str += ' <tr class="gradeX">\n' +
-                    '    <td>'+data[i]+'</td>\n' +
-                    '    <td>张鹏飞</td>\n' +
-                    '    <td>张鹏飞</td>\n' +
-                    '      <td>\n' +
-                    '         <div class="tpl-table-black-operation">\n' +
-                    '        <a href="javascript:;">\n' +
-                    '      <i class="am-icon-pencil"></i> 编辑\n' +
-                    '          </a>\n' +
-                    '            <a href="javascript:;" class="tpl-table-black-operation-del">\n' +
-                    '                <i class="am-icon-trash"></i> 删除\n' +
-                    '                  </a>\n' +
-                    '                   </div>\n' +
-                    '           </td>\n' +
-                    '             </tr>';
-            }
-            return str;
-        };
-        //返回的是一个page示例，拥有实例方法
-        var $page = $("#page").page({
-            pages: pages,
-            curr: 1,
-            theme: 'default',
-            groups: 5,
-            prev: '<',
-            next: '>',
-            first: "首页",
-            last: "尾页",
-            before: function (context, next) {
-                console.log('开始加载...');
-                context.time = (new Date()).getTime();
-                next();
-            },
-            render: function (context, $element, index) {
-                //逻辑处理
-                if (index == 'last') {
-                    $element.find('a').html('最后一页');
-                    return $element;
-                }
-                return false;
-            },
-            after: function (context, next) {
-                var time = (new Date()).getTime();
-                console.log('分页组件加载完毕，耗时：' + (time - context.time) + 'ms');
-                next();
-            },
-            /*
-             * 触发分页后的回调，如果首次加载时后端已处理好分页数据则需要在after中判断终止或在jump中判断first是否为假
-             */
-            jump: function (context, first) {
-                console.log('当前第：' + context.option.curr + "页");
-                $("#employee_list").html(thisDate(context.option.curr));
-            }
-        });
+    $('#print').click(function () {
+
+        $('#print_area').printArea();
+
     });
+
+    var XHR = null
+    if(window.XMLHttpRequest){
+        XHR = new XMLHttpRequest();
+    }else if(window.ActiveXObject){
+        XHR = new ActiveXObject('Microsoft.XMLHTTP');
+    }else{
+        XHR = null;
+    }
+
+    if(XHR){
+
+        XHR.open('GET','http://weixin.rccfkg.com/employee/employees',false,null,null);
+
+
+        XHR.onreadystatechange = function () {
+            // readyState值说明
+            // 0,初始化,XHR对象已经创建,还未执行open
+            // 1,载入,已经调用open方法,但是还没发送请求
+            // 2,载入完成,请求已经发送完成
+            // 3,交互,可以接收到部分数据
+
+            // status值说明
+            // 200:成功
+            // 404:没有发现文件、查询或URl
+            // 500:服务器产生内部错误
+            if (XHR.readyState === 4 && XHR.status === 200) {
+                // 这里可以对返回的内容做处理
+                // 一般会返回JSON或XML数据格式
+                console.log(XHR.responseText);
+                // 主动释放,JS本身也会回收的
+                XHR = null;
+            }
+        };
+        XHR.send();
+    }
+//    $(function () {
+//
+//        function employeeList(data) {
+//            return data;
+//        }
+//
+//        var pages  ;
+//
+//        var jsonStr = {};
+//        jsonStr.currentPage = 0;
+//
+//
+//        var str = '';
+//        $.ajax({
+//            url: 'http://weixin.rccfkg.com/employee/employees',
+//            data: jsonStr,
+//            dataType: 'jsonp',
+//            jsonCallback: 'employeeList',
+//            success: function (result) {
+//                if (result.code) {
+//                    var employees = JSON.parse(result.data);
+//
+//                    pages = employees.length;
+//
+//
+//                    for (var i = 0; i < employees.length; i++) {
+//
+//                        var employee = employees[i];
+//
+//                        str += '<tr>\n' +
+//                            '    <td>'+employee.code+'</td>\n' +
+//                            '    <td>'+employee.name+'</td>\n' +
+//                            '    <td>'+employee.sex+'</td>\n' +
+//                            '    <td>'+employee.phone+'</td>\n' +
+//                            '    <td>'+employee.department+'</td>\n' +
+//                            '    <td>'+employee.duties+'</td>\n' +
+//                            '    <td>'+employee.directorName+'</td>\n' +
+//                            '    <td>'+employee.duptyDirectorName+'</td>\n' +
+//                            '    <td>\n' +
+//                            '    <a class="am-btn am-btn-default am-btn-xs am-text-secondary"><span\n' +
+//                            '        class="am-icon-pencil-square-o"></span> 详情\n' +
+//                            '    </a>\n' +
+//                            '    <a href="employee_detail.html" class="am-btn am-btn-default am-btn-xs"><span\n' +
+//                            '         class="am-icon-copy"></span> 编辑\n' +
+//                            '    </a>\n' +
+//                            '    <a class="am-btn am-btn-default am-btn-xs am-text-danger">\n' +
+//                            '          <span class="am-icon-trash-o"></span> 删除\n' +
+//                            '    </a>\n' +
+//                            '    </td>\n' +
+//                            '</tr>';
+//
+//                    }
+//                }
+//
+//            },
+//            error: function (result) {
+//                console.log(result);
+//                console.log(result.errormsg);
+//
+//            }
+//
+//        });
+//
+//        $("#employee_list").html(str);
+//        function theData(jsonStr) {
+//
+//            var str = '';
+//            $.ajax({
+//                url: 'http://weixin.rccfkg.com/employee/employees',
+//                data: jsonStr,
+//                dataType: 'jsonp',
+//                jsonCallback: 'employeeList',
+//                success: function (result) {
+//                    if (result.code) {
+//                        var employees = JSON.parse(result);
+//
+//                        for (var i = 0; i < employees.length; i++) {
+//
+//                            var employee = employees[i];
+//
+//                            str += '<tr>\n' +
+//                                '    <td>'+employee.code+'</td>\n' +
+//                                '    <td>'+employee.name+'</td>\n' +
+//                                '    <td>'+employee.sex+'</td>\n' +
+//                                '    <td>'+employee.phone+'</td>\n' +
+//                                '    <td>'+employee.department+'</td>\n' +
+//                                '    <td>'+employee.duties+'</td>\n' +
+//                                '    <td>'+employee.directorName+'</td>\n' +
+//                                '    <td>'+employee.duptyDirectorName+'</td>\n' +
+//                                '    <td>\n' +
+//                                '    <a class="am-btn am-btn-default am-btn-xs am-text-secondary"><span\n' +
+//                                '        class="am-icon-pencil-square-o"></span> 详情\n' +
+//                                '    </a>\n' +
+//                                '    <a href="employee_detail.html" class="am-btn am-btn-default am-btn-xs"><span\n' +
+//                                '         class="am-icon-copy"></span> 编辑\n' +
+//                                '    </a>\n' +
+//                                '    <a class="am-btn am-btn-default am-btn-xs am-text-danger">\n' +
+//                                '          <span class="am-icon-trash-o"></span> 删除\n' +
+//                                '    </a>\n' +
+//                                '    </td>\n' +
+//                                '</tr>';
+//
+//                        }
+//                    }
+//
+//                },
+//                error: function (result) {
+//                    console.log(result);
+//                    console.log(result.errormsg);
+//
+//                }
+//
+//            });
+//            return str;
+//        }
+//
+//
+//        //返回的是一个page示例，拥有实例方法
+////        var $page = $("#page").page({
+////            pages: pages,
+////            curr: 1,
+////            theme: 'default',
+////            groups: 3,
+////            prev: '<',
+////            next: '>',
+////            first: "首页",
+////            last: "尾页",
+////            before: function (context, next) {
+////                console.log('开始加载...');
+////                context.time = (new Date()).getTime();
+////                next();
+////            },
+////            render: function (context, $element, index) {
+////                //逻辑处理
+////                if (index == 'last') {
+////                    $element.find('a').html('最后一页');
+////                    return $element;
+////                }
+////                if (index == 'first') {
+////                    $element.find('a').html('第一页');
+////                    return $element;
+////                }
+////                return false;
+////            },
+////            after: function (context, next) {
+////                var time = (new Date()).getTime();
+////                console.log('分页组件加载完毕，耗时：' + (time - context.time) + 'ms');
+////                next();
+////            },
+////            /*
+////             * 触发分页后的回调，如果首次加载时后端已处理好分页数据则需要在after中判断终止或在jump中判断first是否为假
+////             */
+////            jump: function (context, first) {
+////                jsonStr.currentPage++;
+////                $("#employee_list").html(theData(jsonStr));
+////            }
+////        });
+//    });
+
+
+
 </script>
 
 </body>
