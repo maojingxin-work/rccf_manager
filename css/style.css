@@ -1,35 +1,38 @@
 html, body {
-    overflow: auto;
-    /*background-color: #19283b;*/
-    background-color: rgba(0,0,0,0);
+  overflow: auto;
+  /*background-color: #19283b;*/
+  background-color: rgba(0, 0, 0, 0);
 }
 
 /*table{*/
-    /*!*background-color: #273f54;*!*/
-    /*background-color: rgba(0,0,0,0);*/
+/*!*background-color: #273f54;*!*/
+/*background-color: rgba(0,0,0,0);*/
 /*}*/
-td,th{
-     /*background-color: #273f54!important;*/
-     /*background-color: rgba(0,0,0,0);*/
-     color: #FFFFFF;
- }
+td, th {
+  /*background-color: #273f54!important;*/
+  /*background-color: rgba(0,0,0,0);*/
+  color: #FFFFFF;
+}
 
 .am-table-striped > tbody > tr:nth-child(odd) > td, .am-table-striped > tbody > tr:nth-child(odd) > th {
-    background-color: rgba(104,106,105,0.5);
+  background-color: rgba(104, 106, 105, 0.5);
 }
+
 .am-selected > .am-btn-default {
-    color: #FFFFFF;
+  color: #FFFFFF;
 }
 
 summary {
-    cursor: pointer;
+  cursor: pointer;
 }
-.am-g .am-input-group-label{
-    width: 8em;
+
+.am-g .am-input-group-label {
+  width: 8em;
 }
-.summary-title{
-    background-color: #1a1a1a;
-    color: #FFFFFF;
-    margin-bottom: 2rem;
+
+.summary-title {
+  background-color: #1a1a1a;
+  color: #FFFFFF;
+  margin-bottom: 2rem;
 }
 
