@@ -9,7 +9,7 @@
   <link rel="stylesheet" type="text/css" href="../css/admin.css"/>
   <style type="text/css">
     html, body {
-      overflow: hidden;
+      overflow: auto;
     }
 
     .am-nav-tabs > li.am-active > a, .am-nav-tabs > li.am-active > a:focus, .am-nav-tabs > li.am-active > a:hover {
@@ -45,7 +45,8 @@
       padding: 4px;
       width: 25%;
       float: left;
-      text-indent: 2em
+      text-indent: 2em;
+      text-align: center;
     }
 
     .am-tabs-bd .th {
@@ -74,7 +75,7 @@
   <div class="am-g">
     <div class="am-u-sm-12 am-u-md-8 am-u-lg-4 am-u-sm-centered">
       <button id="edit" type="button" class="am-btn am-btn-primary am-u-sm-6 ">编辑种类</button>
-      <button type="button" class="am-btn am-btn-warning am-u-sm-6  am-u-end">取消编辑</button>
+      <button id="edit_cancel" type="button" class="am-btn am-btn-warning am-u-sm-6  am-u-end">取消编辑</button>
     </div>
   </div>
 
@@ -123,12 +124,12 @@
           <li>28</li>
           <li><i class="am-icon-close"></i></li>
         </ul>
-        <ul class="am-hide">
+        <ul class="am-hide add-info">
           <li><input class="edit-number" type="text" placeholder="分类"></li>
           <li>大于<input class="edit-number" type="number">小于等于<input class="edit-number" type="number"></li>
           <li><input class="edit-number" type="number"></li>
           <li>
-            <button class="am-btn am-text-primary am-text-sm">添加</button>
+            <button class="am-btn am-text-primary am-text-sm" onclick="addClick(this)">添加</button>
           </li>
         </ul>
       </div>
@@ -169,12 +170,12 @@
           <li>28</li>
           <li><i class="am-icon-close"></i></li>
         </ul>
-        <ul class="am-hide">
+        <ul class="am-hide add-info">
           <li><input class="edit-number" type="text" placeholder="分类"></li>
           <li>大于<input class="edit-number" type="number">小于等于<input class="edit-number" type="number"></li>
           <li><input class="edit-number" type="number"></li>
           <li>
-            <button class="am-btn am-text-primary am-text-sm">添加</button>
+            <button class="am-btn am-text-primary am-text-sm" onclick="addClick(this)">添加</button>
           </li>
         </ul>
       </div>
@@ -215,12 +216,12 @@
           <li>28</li>
           <li><i class="am-icon-close"></i></li>
         </ul>
-        <ul class="am-hide">
+        <ul class="am-hide add-info">
           <li><input class="edit-number" type="text" placeholder="分类"></li>
           <li>大于<input class="edit-number" type="number">小于等于<input class="edit-number" type="number"></li>
           <li><input class="edit-number" type="number"></li>
           <li>
-            <button class="am-btn am-text-primary am-text-sm">添加</button>
+            <button class="am-btn am-text-primary am-text-sm" onclick="addClick(this)">添加</button>
           </li>
         </ul>
       </div>
@@ -230,6 +231,10 @@
 <script src="../js/jquery.min.js"></script>
 <script src="../js/amazeui.min.js"></script>
 <script>
+
+  $(function () {
+    $(".am-icon-close").hide();
+  });
 
   function removeSelf(obj) {
     var objs = obj.parentNode;
@@ -263,7 +268,7 @@
       '          <li>28</li>' +
       '          <li><i class="am-icon-close" onclick="removeParent(this)"></i></li>' +
       '        </ul>';
-    str += '<ul class="am-hide">' +
+    str += '<ul class="add-info">' +
       '          <li><input class="edit-number" type="text" placeholder="分类"></li>' +
       '          <li>大于<input class="edit-number" type="number">小于等于<input class="edit-number" type="number"></li>' +
       '          <li><input class="edit-number" type="number"></li>' +
@@ -275,34 +280,6 @@
     parent.append(str);
   }
 
-  $(".am-text-sm").click(function () {
-    var node = this;
-
-    var liNode = node.parentNode;
-    var ulNode = liNode.parentNode;
-    var divNode = ulNode.parentNode;
-
-    ulNode.addEventListener('click', removeSelf(ulNode));
-
-    var str = '';
-    str += '<ul>' +
-      '          <li>F</li>' +
-      '          <li>大于60小于等于70</li>' +
-      '          <li>28</li>' +
-      '          <li><i class="am-icon-close" onclick="removeParent(this)"></i></li>' +
-      '        </ul>';
-    str += '<ul class="am-hide">' +
-      '          <li><input class="edit-number" type="text" placeholder="分类"></li>' +
-      '          <li>大于<input class="edit-number" type="number">小于等于<input class="edit-number" type="number"></li>' +
-      '          <li><input class="edit-number" type="number"></li>' +
-      '          <li>' +
-      '            <button class="am-btn am-text-primary am-text-sm" onclick="addClick(this)">添加</button>' +
-      '          </li>' +
-      '        </ul>';
-    var parent = $(divNode);
-    parent.append(str);
-  });
-
   $(".am-icon-close").click(function () {
     var node = this;
 
@@ -313,8 +290,26 @@
 
   });
 
+  /**
+   *
+   * 编辑种类的点击事件
+   * 页面显示编辑标签
+   *
+   * */
   $("#edit").click(function () {
     $(".am-hide").removeClass("am-hide");
+    $(".am-icon-close").show();
+  });
+
+  /**
+   *
+   * 取消编辑的点击事件
+   * 页面编辑标签移除
+   *
+   * */
+  $("#edit_cancel").click(function () {
+    $(".add-info").addClass("am-hide");
+    $(".am-icon-close").hide();
   });
 
 </script>
