@@ -1,0 +1,8 @@
+# Created by .ignore support plugin (hsz.mobi)
+md
+.gitignore
+.idea/inspectionProfiles/
+.idea/rccf_manager.iml
+.idea/workspace.xml
+bootstorp/
+md/
