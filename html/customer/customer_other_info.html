@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>其他联系人信息</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" type="text/css" href="../../css/amazeui.min.css"/>
+  <style type="text/css">
+    html,
+    body {
+      font-family: '苹方', arial, sans-serif;
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .am-input-group label,
+    .am-input-group select,
+    .am-input-group input {
+      height: 3.5rem;
+      padding-top: 0.5rem;
+      color: #333333;
+      border: 1px solid #eeeeee;
+    }
+
+    .am-input-group select,
+    .am-input-group input {
+      border-left: none;
+    }
+
+    .am-input-group label {
+      padding-left: 0.2rem;
+    }
+
+    [class*=am-u-] {
+      margin-bottom: 0;
+    }
+  </style>
+</head>
+<body>
+<div class="am-container am-margin-vertical">
+
+  <div class="am-text-right am-margin-vertical-xs">
+    <btn id="edit">编辑&emsp;&emsp;</btn>
+  </div>
+  <div class="am-g">
+    <fieldset disabled>
+      <div class="am-u-sm-12 am-u-md-8 am-u-lg-6">
+        <div class="am-input-group am-u-sm-12">
+          <label class="am-u-sm-4 ">姓名</label>
+          <input class="am-u-sm-8" type="text" value="张三">
+        </div>
+      </div>
+      <div class="am-u-sm-12 am-u-md-8 am-u-lg-6">
+        <div class="am-input-group am-u-sm-12">
+          <label class="am-u-sm-4 ">关系</label>
+          <input class="am-u-sm-8" type="text" value="父子">
+        </div>
+      </div>
+      <div class="am-u-sm-12 am-u-md-8 am-u-lg-6">
+        <div class="am-input-group am-u-sm-12">
+          <label class="am-u-sm-4 ">联系电话</label>
+          <input class="am-u-sm-8" type="number" value="18322222222">
+        </div>
+      </div>
+      <div class="am-u-sm-12 am-u-md-8 am-u-lg-6">
+        <div class="am-input-group am-u-sm-12">
+          <label class="am-u-sm-4 ">地址</label>
+          <input class="am-u-sm-8" type="text" value="北京市朝阳区">
+        </div>
+      </div>
+      <div class="am-u-sm-12 am-u-md-8 am-u-lg-6">
+        <div class="am-input-group am-u-sm-12">
+          <label class="am-u-sm-4 ">是否贷过款</label>
+          <select class="am-u-sm-8">
+            <option>是</option>
+            <option>否</option>
+          </select>
+        </div>
+      </div>
+      <div id="btns" class="am-u-sm-12 am-u-md-8 am-u-lg-6 am-margin-vertical am-hide">
+        <div class="am-input-group am-u-sm-12">
+          <button id="edit-confirm" class="am-u-sm-6 am-btn am-btn-primary">提交修改</button>
+          <button id="edit-cancel" onclick="cancel()" class="am-u-sm-6 am-btn am-btn-default">取消编辑</button>
+        </div>
+      </div>
+    </fieldset>
+  </div>
+</div>
+
+<script src="../../js/jquery.min.js"></script>
+<script>
+
+  $(function () {
+    /**
+     *
+     * 点击编辑进入编辑页面
+     *
+     * */
+    $('#edit').click(function () {
+      $('fieldset').attr('disabled', false);
+      $('#btns').removeClass('am-hide');
+    });
+  });
+  /**
+   *
+   * 取消编辑点击事件
+   *
+   * */
+  var cancel = function () {
+    $('fieldset').attr('disabled', true);
+    $('#btns').addClass('am-hide');
+  };
+  /**
+   *
+   * 提交修改编辑事件
+   *
+   * */
+  $('#edit-confirm').click(function () {
+    alert('kkk');
+  });
+
+
+</script>
+</body>
+</html>

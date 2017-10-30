@@ -5,8 +5,8 @@
   <title>业绩--提成</title>
   <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
   <meta http-equiv="X-UA-Compatible" content="IE=Edge">
-  <link rel="stylesheet" type="text/css" href="../css/amazeui.min.css"/>
-  <link rel="stylesheet" type="text/css" href="../css/admin.css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/amazeui.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/admin.css"/>
   <style type="text/css">
     html, body {
       overflow: auto;
@@ -228,8 +228,9 @@
     </div>
   </div>
 </div>
-<script src="../js/jquery.min.js"></script>
-<script src="../js/amazeui.min.js"></script>
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/amazeui.min.js"></script>
+<!--suppress JSUnusedLocalSymbols -->
 <script>
 
   $(function () {
@@ -243,9 +244,8 @@
   }
 
   function removeParent(obj) {
-    var node = obj;
 
-    var liNode = node.parentNode;
+    var liNode = obj.parentNode;
     var ulNode = liNode.parentNode;
 
     ulNode.addEventListener('click', removeSelf(ulNode));
@@ -253,9 +253,8 @@
   }
 
   function addClick(obj) {
-    var node = obj;
 
-    var liNode = node.parentNode;
+    var liNode = obj.parentNode;
     var ulNode = liNode.parentNode;
     var divNode = ulNode.parentNode;
 
