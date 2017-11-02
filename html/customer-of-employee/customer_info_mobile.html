@@ -24,6 +24,9 @@
 </head>
 <body>
 <div class="am-container am-margin-vertical">
+  <div id="back" class="am-text-lg">
+    <i class="am-icon-chevron-left"></i>返回
+  </div>
   <div class="am-text-default ">
     <div class="am-u-sm-12  am-text-center am-margin-vertical-xs">客户姓名：<span class="am-icon-border">张三</span></div>
     <div class="am-u-sm-12  am-text-center am-margin-vertical-xs">客户手机号：<span class="am-icon-border">12312411234</span></div>
@@ -45,7 +48,7 @@
       <img src="../../img/customer_info/客户房产信息.png">
       <div><label>客户房产信息</label></div>
     </div>
-    <div data-html="customer_car" class="am-u-sm-6 am-u-md-4 am-u-lg-3 am-text-center am-margin-vertical-xs">
+    <div data-html="customer_car_list" class="am-u-sm-6 am-u-md-4 am-u-lg-3 am-text-center am-margin-vertical-xs">
       <img src="../../img/customer_info/客户车产信息.png">
       <div><label>客户车产信息</label></div>
     </div>
@@ -61,9 +64,13 @@
       <img src="../../img/customer_info/客户贷款意向.png">
       <div><label>客户贷款意向</label></div>
     </div>
-    <div class="am-u-sm-6 am-u-md-4 am-u-lg-3 am-u-end am-text-center am-margin-vertical-xs">
+    <div data-html="customer_loan_want" class="am-u-sm-6 am-u-md-4 am-u-lg-3 am-u-end am-text-center am-margin-vertical-xs">
       <img src="../../img/customer_info/客户信用资料.png">
       <div><label>客户信用资料</label></div>
+    </div>
+    <div data-html="customer_loan_want" class="am-u-sm-6 am-u-md-4 am-u-lg-3 am-u-end am-text-center am-margin-vertical-xs">
+      <img src="../../img/customer_info/客户跟踪信息.png">
+      <div><label>客户跟踪信息</label></div>
     </div>
   </div>
 </div>
@@ -74,7 +81,7 @@
     $(this).addClass('animated flash');
     var name = $(this).data("html");
     setTimeout(function () {
-      window.location.href="http://localhost:63342/rccf_manager/html/customer/"+name+".html";
+      window.location.href="http://localhost:63342/rccf_manager/html/customer-of-employee/"+name+".html";
     },1000)
   });
 </script>
