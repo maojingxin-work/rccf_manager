@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>融成办公系统</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" type="text/css" href="../../css/amazeui.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/animate.css"/>
+  <style>
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .am-g img {
+      width: 80px;
+      height: 80px;
+      border-radius: 10px;
+    }
+
+    .am-border {
+      border: solid 1px #eeeeee;
+      background-color: #f5f5f5;
+      border-radius: 10px;
+    }
+
+    .am-border ul {
+      list-style: none;
+    }
+
+  </style>
+</head>
+<body>
+<div class="am-container am-margin-vertical">
+  <div class="am-margin-xs am-padding am-border">
+    <div class="am-padding-left am-text-warning">待办事项</div>
+    <ul>
+      <li><i class="am-text-xs am-icon-circle am-text-primary"></i>&emsp;<span>约见客户</span></li>
+      <li><i class="am-text-xs am-icon-circle am-text-primary"></i>&emsp;<span>约见客户</span></li>
+      <li><i class="am-text-xs am-icon-circle am-text-primary"></i>&emsp;<span>约见客户</span></li>
+    </ul>
+  </div>
+
+  <div class="am-g">
+    <div data-html="customer_all" class="am-u-sm-6 am-u-md-4 am-u-lg-3 am-text-center am-margin-vertical-xs">
+      <img src="../../img/customer_info/客户基本信息.png">
+      <div><label>个人客户管理</label></div>
+    </div>
+  </div>
+</div>
+
+<script src="../../js/jquery.min.js"></script>
+<script>
+  $('[data-html]').click(function () {
+    $(this).addClass('animated flash');
+    var name = $(this).data("html");
+    setTimeout(function () {
+      window.location.href = "http://localhost:63342/rccf_manager/html/customer-of-employee/" + name + ".html";
+    }, 1000)
+  });
+</script>
+</body>
+</html>
