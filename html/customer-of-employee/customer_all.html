@@ -14,7 +14,8 @@
       overflow-x: hidden;
       overflow-y: auto;
     }
-    .am-table th{
+
+    .am-table th {
       background-color: #2c4666;
       color: #ffffff;
     }
@@ -27,37 +28,135 @@
   </div>
 
   <div class="am-g">
-    <div class="am-u-sm-12 am-u-md-8 am-u-lg-6 am-text-right am-margin-right"><a href="customer_add.html">添加新客户</a></div>
-
-    <div class="am-u-sm-12 am-u-md-8 am-u-lg-6 am-u-end">
-      <table class="am-table am-table-bordered">
-        <thead>
-          <tr>
-            <th>序号</th>
-            <th>手机号</th>
-            <th>客户姓名</th>
-          </tr>
-        </thead>
-        <tbody>
-            <tr>
-              <td>1</td>
-              <td>1234123123123</td>
-              <td>张三思密达</td>
-            </tr>
-            <tr>
-              <td>2</td>
-              <td>1234123123123</td>
-              <td>张三思密达</td>
-            </tr>
-            <tr>
-              <td>3</td>
-              <td>1234123123123</td>
-              <td>张三思密达</td>
-            </tr>
-        </tbody>
-      </table>
-    </div>
+  <div class="am-u-sm-12 am-u-md-8 am-u-lg-6 am-text-right am-margin-right"><a href="customer_add.html">添加新客户</a>
   </div>
+
+  <div class="am-u-sm-12 am-u-md-8 am-u-lg-6 am-u-end">
+    <table class="am-table am-table-bordered">
+      <thead>
+      <tr>
+        <th>序号</th>
+        <th>手机号</th>
+        <th>客户姓名</th>
+      </tr>
+      </thead>
+      <tbody id="content">
+      <tr>
+        <td>1</td>
+        <td>1234123123123</td>
+        <td>张三思密达</td>
+      </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div id="page"></div>
+
 </div>
+</div>
+
+<script src="../../js/jquery.min.js"></script>
+<script src="../../js/amazeui.page.js"></script>
+<script>
+
+
+  //解析jsonp的函数
+  function getCustomer(data) {
+    return data;
+  }
+
+  $(function () {
+    var serialNum = 1; //序号
+    var nums = 0; //每页出现的数量
+    var curr = 1; // 当前页数
+    var pages = 1; //总页数
+    $.ajax({
+      url: "http://192.168.1.84:8080/customer/info/list",
+      data: {"pageNo": curr},
+      dataType: "jsonp",
+      jsonCallBack: 'getCustomer',
+      success: function (result) {
+        console.log(result);
+        var info = result.data;
+        nums = result.epage;
+        var total = result.total;
+        pages = Math.ceil(total / nums);
+        console.log(pages);
+        console.log(curr);
+        var $page = $("#page").page({
+          pages: pages, //页数
+          curr: curr, //当前页
+          type: 'default', //主题
+          groups: 3, //连续显示分页数
+          prev: '<', //若不显示，设置false即可
+          next: '>', //若不显示，设置false即可
+          first: "首页",
+          last: "尾页", //false则不显示
+          before: function (context, next) { //加载前触发，如果没有执行next()则中断加载
+            console.log('开始加载...');
+            context.time = (new Date()).getTime(); //只是演示，并没有什么卵用，可以保存一些数据到上下文中
+            next();
+          },
+          render: function (context, $el, index) { //渲染[context：对this的引用，$el：当前元素，index：当前索引]
+            //逻辑处理
+            if (index == 'last') { //虽然上面设置了last的文字为尾页，但是经过render处理，结果变为最后一页
+              $el.find('a').html('末页');
+              return $el; //如果有返回值则使用返回值渲染
+            }
+            return false; //没有返回值则按默认处理
+          },
+          after: function (context, next) { //加载完成后触发
+            var time = (new Date()).getTime(); //没有什么卵用的演示
+            console.log('分页组件加载完毕，耗时：' + (time - context.time) + 'ms');
+            next();
+          },
+          /*
+           * 触发分页后的回调，如果首次加载时后端已处理好分页数据则需要在after中判断终止或在jump中判断first是否为假
+           */
+          jump: function (context, first) {
+            console.log('当前第：' + context.option.curr + "页");
+            getData(context.option.curr);
+          }
+        });
+      },
+      error: function (result) {
+        alert(result.errorMsg);
+      }
+    });
+
+
+    //  获取分页数据
+    var getData = function (curr) {
+      var str = '';
+      $.ajax({
+        url: "http://192.168.1.84:8080/customer/info/list",
+        data: {"pageNo": curr},
+        dataType: "jsonp",
+        jsonCallBack: 'getCustomer',
+        success: function (result) {
+          serialNum = (curr - 1) * nums + 1;
+          var info = result.data;
+          for (var i = 0; i < info.length; i++) {
+
+            var oneInfo = info[i];
+            str += '<tr>\n' +
+              '       <td>' + serialNum + '</td>\n' +
+              '       <td>' + oneInfo.phone + '</td>\n' +
+              '       <td>' + oneInfo.name + '</td>\n' +
+              '     </tr>';
+            serialNum++;
+          }
+          $('#content').html(str);
+        },
+        error: function (result) {
+          alert(result.errorMsg);
+        }
+      });
+    };
+    getData(curr);
+  });
+
+
+</script>
 </body>
 </html>
