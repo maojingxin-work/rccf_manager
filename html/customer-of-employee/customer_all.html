@@ -139,7 +139,7 @@
           for (var i = 0; i < info.length; i++) {
 
             var oneInfo = info[i];
-            str += '<tr>\n' +
+            str += '<tr onclick="">\n' +
               '       <td>' + serialNum + '</td>\n' +
               '       <td>' + oneInfo.phone + '</td>\n' +
               '       <td>' + oneInfo.name + '</td>\n' +
@@ -155,6 +155,9 @@
     };
     getData(curr);
   });
+
+
+
 
 
 </script>
