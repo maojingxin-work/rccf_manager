@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>机构管理</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" type="text/css" href="../../css/amazeui.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/animate.css"/>
+  <style type="text/css">
+    html,
+    body {
+      color: #333333;
+    }
+
+    .am-table th {
+      background-color: #f5f5f5;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+<div class="am-margin">
+  <p class="am-text-secondary am-text-lg">机构管理</p>
+  <span>机构名称：</span>
+  <input type="text" >
+  <button class="am-btn am-btn-primary am-btn-sm">搜索</button>
+  <button class="am-btn am-btn-warning am-btn-sm am-align-right am-margin-right-xl">添加新机构</button>
+</div>
+<div class="am-margin">
+  <table class="am-table am-table-bordered am-text-nowrap am-text-center">
+    <thead class="am-text-center">
+    <tr>
+      <th>序号</th>
+      <th>机构名称</th>
+      <th>机构编号</th>
+      <th>状态</th>
+      <th>操作</th>
+    </tr>
+    </thead>
+    <tbody>
+    <tr>
+      <td>1</td>
+      <td>中国银行</td>
+      <td>1.12-ZG-XD</td>
+      <td class="am-text-primary">启用中</td>
+      <td>
+        <a class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+                class="am-icon-pencil-square-o"></span> 详情
+        </a>
+      </td>
+    </tr>
+    <tr>
+      <td>2</td>
+      <td>中国银行</td>
+      <td>1.12-ZG-XD</td>
+      <td class="am-text-danger">停用中</td>
+      <td>
+        <a class="am-btn am-btn-default am-btn-xs am-text-secondary"><span
+                class="am-icon-pencil-square-o"></span> 详情
+        </a>
+      </td>
+    </tr>
+    </tbody>
+  </table>
+</div>
+</body>
+</html>
