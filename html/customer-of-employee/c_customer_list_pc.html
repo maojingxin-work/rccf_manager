@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>客户列表</title>
+    <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+    <link rel="stylesheet" type="text/css" href="../../css/amazeui.min.css"/>
+    <link rel="stylesheet" type="text/css" href="../../css/admin.css"/>
+    <style type="text/css">
+        html, body {
+            overflow: hidden;
+        }
+
+        .search-group span {
+            display: inline-block;
+            width: 6em;
+        }
+
+        @media screen and (min-width: 740px) {
+            .search-group select,
+            .search-group input {
+                width: 8em;
+            }
+
+            .search-group span {
+                display: inline-block;
+                width: 6em;
+            }
+        }
+
+        .am-table{
+
+        }
+
+        .popup-info{
+            /*position: absolute;*/
+            /*top: 2em;*/
+            /*left: -2em;*/
+            /*z-index:2;*/
+            /*background-color: #0a6999;*/
+            /*color: #fff;*/
+
+            background: #3a4144;
+            color: #fff;
+            position: absolute;
+            top: 6em;
+            right: 2em;
+            z-index: 100;
+
+            padding: 1em 1em 0.3em 1em;
+
+            border-radius: 10px;
+        }
+
+        .popup-info ul{
+            list-style: circle;
+            list-style-position: outside;
+        }
+    </style>
+</head>
+<body>
+<div class="admin-content-body">
+    <div class="am-cf am-padding am-padding-bottom-0">
+        <div class="am-fl am-cf">
+            <strong class="am-text-primary am-text-lg">客户列表</strong>
+        </div>
+    </div>
+    <hr>
+
+    <div class="am-g">
+        <div class="am-u-sm-12 am-margin-bottom">
+            <div class="am-u-sm-12 am-u-md-3 search-group">
+
+                <span class="">
+                 副总监:
+                </span>
+                <select id="custome_assin_deputydirector">
+                    <option value="0">选择副总监</option>
+
+                    <option value=""></option>
+                </select>
+            </div>
+            <div class="am-u-sm-12 am-u-md-3 search-group">
+                <span class="">
+                 贷款类型:
+                </span>
+                <select id="customer_loan_type">
+                    <option value="-1">选择贷款类型</option>
+
+                    <option value=""></option>
+                </select>
+            </div>
+
+            <div class="am-u-sm-12 am-u-md-3 search-group">
+                <span class="">
+                 客户姓名:
+                 </span>
+                <input id="customer_name" class="" type="text">
+            </div>
+            <div class="am-u-sm-12 am-u-md-3 search-group">
+                <span class="">
+                 业务员姓名:
+                 </span>
+                <input id="clerk_name" class="" type="text" value="">
+            </div>
+            <span class="am-align-right" style="margin-top: -2em;">
+                        <button id="search" class="am-btn am-btn-primary" type="button">搜索</button>
+                </span>
+        </div>
+    </div>
+
+    <div class="am-g am-margin am-padding-right-xl am-text-left am-hide">
+        <a id="export" data-type="xls" href="javascript:;" class="am-btn am-btn-secondary">导出表格</a>
+    </div>
+
+
+    <div class="am-g ">
+        <div class="am-u-sm-12 ">
+            <div class="am-form am-scrollable-horizontal">
+                <table id="customer_list"
+                       class="am-scrollable-horizontal am-form-horizontal am-text-nowrap am-table-centered am-table-bordered am-table am-table-striped am-table-hover table-main">
+                    <thead>
+                    <tr>
+                        <th>姓名</th>
+                        <th>总监</th>
+                        <th>副总监</th>
+                        <th>销售经理</th>
+                        <th>录入时间</th>
+                        <th>申请贷款类型</th>
+                        <th>申请贷款金额</th>
+                        <th>申请贷款时间</th>
+                        <th>服务费</th>
+                        <th>性别</th>
+                        <th>年龄</th>
+                        <th>籍贯</th>
+                        <th>公司信息</th>
+                        <th>房产信息</th>
+                        <th>车辆信息</th>
+                        <th>编辑</th>
+                        <th>跟踪情况</th>
+                    </tr>
+                    </thead>
+                    <tbody id="content">
+                        <tr>
+                            <td>一个人</td>
+                            <td>两颗心</td>
+                            <td>三两肉</td>
+                            <td>四轮车</td>
+                            <td>五大头</td>
+                            <td>六六顺</td>
+                            <td>七个上</td>
+                            <td>八股水</td>
+                            <td>九天书</td>
+                            <td>石土义</td>
+                            <td>石土义</td>
+                            <td>石土义</td>
+                            <td>石土义</td>
+                            <td>石土义</td>
+                            <td>石土义</td>
+                            <td>石土义石土义石土义</td>
+                            <td class="am-text-nowrap am-text-truncate" style="max-width: 10em;" onmouseenter="showSomething()" onmouseleave="hideSomething()">
+                                新鲜的东西要加油做 做成啥样就是啥样呗新鲜的东西要加油做 做成啥样就是啥样呗新鲜的东西要加油做 做成啥样就是啥样呗
+                                <div class="popup-info am-hide">
+                                    <ul>
+                                        <li>新鲜的东西要加油做</li>
+                                        <li>新鲜的东西要加油做</li>
+                                        <li>新鲜的东西要加油做</li>
+                                        <li>新鲜的东西要加油做</li>
+                                    </ul>
+                                </div>
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+</div>
+<div id="page"></div>
+<script src="http://apps.bdimg.com/libs/jquery/2.1.4/jquery.min.js"></script>
+<script src="../../js/amazeui.page.js"></script>
+<script>
+    function showSomething() {
+      $(".popup-info").removeClass("am-hide");
+    }
+    function hideSomething() {
+      $(".popup-info").addClass("am-hide");
+    }
+
+</script>
+</body>
+</html>
