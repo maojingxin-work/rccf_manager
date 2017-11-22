@@ -30,14 +30,15 @@
       border: none;
     }
 
-    td:nth-child(odd) {
+    .product-base td:nth-child(odd),
+    td:first-child{
       background-color: #f5f5f5;
       color: #000;
       width: 7em;
     }
 
-    td:nth-child(even) {
-      text-align: cuenter;
+    .product-base td:nth-child(even) {
+      text-align: center;
 
     }
 
@@ -60,7 +61,7 @@
 </div>
 
 <div class="am-padding">
-  <table class="am-table am-table-bordered am-text-nowrap am-table-compact">
+  <table class="product-base am-table am-table-bordered am-text-nowrap am-table-compact">
     <tr>
       <th colspan="6">产品基本信息</th>
     </tr>
@@ -96,11 +97,11 @@
 
   <table class="am-table am-table-bordered am-text-nowrap am-table-compact">
     <tr>
-      <th colspan="6">业务受理范围</th>
+      <th colspan="4">业务受理范围</th>
     </tr>
     <tr>
       <td class="am-text-middle">借款人条件</td>
-      <td colspan="5">
+      <td colspan="3">
         <ul>
           <li>最小年龄:<span class="am-text-danger">18</span></li>
           <li>最大年龄:<span class="am-text-danger">65</span></li>
@@ -110,15 +111,38 @@
     </tr>
     <tr>
       <td class="">抵押物类型</td>
-      <td colspan="5">
+      <td colspan="3">
         &emsp;<span class="am-text-danger"> 70年大产权、（2008年4月1日前）经适房、按经适房管理</span>
       </td>
     </tr>
     <tr>
       <td class="">抵押物位置</td>
-      <td colspan="5">
+      <td colspan="3">
         &emsp;<span class="am-text-danger"> 六环及六环以内，除大兴区外。另还有周边城市</span>
       </td>
+    </tr>
+    <tr>
+      <td class="">借款金额</td>
+      <td colspan="3">
+        &emsp;<span class="am-text-danger"> 20-500万元</span>
+      </td>
+    </tr>
+    <tr>
+      <td class="">借款期限</td>
+      <td colspan="3">
+        &emsp;<span class="am-text-danger"> 2-12期、24期、36期</span>
+      </td>
+    </tr>
+    <tr class="am-text-center">
+      <td class="am-text-middle" rowspan="2">抵押成数</td>
+      <td>房龄</td>
+      <td>一抵成数</td>
+      <td>二抵成数</td>
+    </tr>
+    <tr class="am-text-center">
+      <td style="background-color: #fff;color:#333;width: auto;">&emsp;<span class="am-text-danger">35年之内</span></td>
+      <td>&emsp;<span class="am-text-danger">7.5-8</span></td>
+      <td>&emsp;<span class="am-text-danger">7</span></td>
     </tr>
   </table>
 </div>
