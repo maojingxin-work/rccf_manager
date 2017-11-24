@@ -46,21 +46,64 @@
         <div class="am-u-sm-10 am-u-md-5 am-u-sm-centered">
           <div class="am-input-group am-radius animated slideInRight">
             <label class="am-input-group-label">用户名</label>
-            <input type="number" class="am-form-field" placeholder="手机号">
+            <input id="phone" type="number" class="am-form-field" placeholder="手机号">
           </div>
           <div class="am-input-group animated slideInLeft">
             <label class="am-input-group-label">密&emsp;码</label>
-            <input type="password" class="am-form-field" placeholder="登录密码">
+            <input id="password" type="password" class="am-form-field" placeholder="登录密码">
           </div>
         </div>
         <div class="am-u-sm-10 am-u-md-5 am-u-sm-centered am-text-right animated fadeInDown">
             <a href="resetpwd.html">忘记密码？</a>
         </div>
         <div class="am-u-sm-10 am-u-md-5 am-u-sm-centered am-margin-top animated slideInRight">
-          <a class="am-btn am-btn-primary am-u-sm-12">登录</a>
+          <a id="submit" class="am-btn am-btn-primary am-u-sm-12">登录</a>
           <!--<a class="am-btn am-btn-warning am-u-sm-6">注册</a>-->
         </div>
       </div>
   </div>
+  <script src="../js/jquery.js"></script>
+  <script>
+    $('#submit').click(function () {
+      var phone = $('#phone').val();
+      var password = $('#password').val();
+
+      if(window.Notification){
+        noticeDesk('发出最后通告！', phone, password)
+      }else{
+        alert('浏览器不支持该通知！')
+      }
+
+    });
+    
+    function noticeDesk(title, phone, password) {
+      if(Notification.permission === "granted"){
+        popNotice(title, phone, password);
+      }else if(Notification.permission !== "denied"){
+        Notification.requestPermission(function (permission) {
+          if(permission !== "denied"){
+            console.log(permission);
+            alert("获取了通知权限！");
+            popNotice(title, phone, password)
+          }else{
+            alert("没有同意通知权限")
+          }
+        })
+      }else{
+        alert('你没同意我通知，我怎么通知你！')
+      }
+    }
+    
+    function popNotice(title, phone, password) {
+      var notifacation = new Notification(title,{
+        body:'用户名：'+ phone + ' 密码：' + password,
+        icon:'http://image.zhangxinxu.com/image/study/s/s128/mm1.jpg'
+      });
+      $(notifacation).click(function () {
+        alert('关闭了通知！');
+        notifacation.close();
+      })
+    }
+  </script>
 </body>
 </html>

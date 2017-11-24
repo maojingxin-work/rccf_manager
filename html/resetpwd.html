@@ -78,14 +78,20 @@
       </div>
     </div>
     <div class="am-u-sm-10 am-u-md-4 am-u-sm-centered am-margin-top animated slideInRight">
-      <button class="am-btn am-btn-warning am-u-sm-6">取消</button>
-      <button class="am-btn am-btn-primary am-u-sm-6">提交</button>
+      <button id="cancel" class="am-btn am-btn-warning am-u-sm-6">取消</button>
+      <button  class="am-btn am-btn-primary am-u-sm-6">提交</button>
     </div>
   </div>
 </div>
 
 <script src="../js/jquery.min.js"></script>
 <script>
+  
+  
+  $('#cancel').click(function () {
+    window.history.back();
+  });
+  
   /* 刷新生成验证码 */
   function flushValidateCode(){
     var validateImgObject = document.getElementById("codeValidateImg");
