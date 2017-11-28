@@ -1,0 +1,1153 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>客户信息详情</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1,user-scalable=0">
+  <meta http-equiv="X-UA-Compatible" content="IE=Edge">
+  <link rel="stylesheet" type="text/css" href="../../css/amazeui.min.css"/>
+  <link rel="stylesheet" type="text/css" href="../../css/animate.css"/>
+  <style>
+    html,
+    body {
+      width: 100%;
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    .am-list li {
+      margin-top: 0.8em;
+
+      border: none;
+      background-color: #396c92;
+    }
+
+    .am-list-2 li {
+      margin-top: 0.8em;
+
+      border: none;
+      background-color: #5dc6ac;
+    }
+
+    .am-list-3 li {
+      margin-top: 0.8em;
+
+      border: none;
+      background-color: #42bde5;
+    }
+
+    .am-list-div,
+    .am-list-house {
+      padding: 0.5em 0.2em 0.5em 0.5em;
+      color: #ffffff;
+
+    }
+
+    .am-g {
+      background-color: #ffffff;
+      color: #33393c;
+    }
+
+    .am-g .am-g {
+      margin: 0 auto;
+    }
+
+    .am-g .am-u-sm-3 {
+      padding-top: 0.5em;
+    }
+
+    .my-article {
+      width: 100%;
+      overflow: hidden;
+    }
+
+    .my-article p {
+      text-wrap: normal;
+    }
+
+    .am-u-sm-4 img {
+
+      width: 100%;
+      height: 10em;
+    }
+    @media screen and (max-width: 780px) {
+      .am-u-sm-4 img {
+        width: 100%;
+        height: 6em;
+      }
+    }
+
+    .am-btn-bottom {
+      position: fixed;
+      bottom: 8em;
+      right: 2em;
+
+      height: 60px;
+      width: 60px;
+      border-radius: 30px 30px;
+      padding: 20px 0;
+    }
+  </style>
+</head>
+<body>
+<div class="am-margin-top-xs">
+
+  <div class="am-margin-left">
+    <a>客户管理</a> > <a style="color: #666666;">客户信息</a>
+  </div>
+
+  <ul class="am-list">
+
+    <!--客户基本信息-->
+    <li>
+      <div class="am-list-div">
+        客户基本信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <div class="am-u-sm-3 am-u-md-2">
+          录入时间
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="date">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          姓名
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          客户等级
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <select class="am-form-field">
+            <option>请选择</option>
+            <option>A</option>
+            <option>B</option>
+            <option>C</option>
+          </select>
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          手机号
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          年龄
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          性别
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <select class="am-form-field">
+            <option>请选择</option>
+            <option>男</option>
+            <option>女</option>
+          </select>
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          住宅电话
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          身份证号
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          是否分配
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <select class="am-form-field">
+            <option>请选择</option>
+            <option>是</option>
+            <option>否</option>
+          </select>
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          销售经理
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          婚姻状况
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <select class="am-form-field">
+            <option>请选择</option>
+            <option>已婚</option>
+            <option>未婚</option>
+          </select>
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          教育程度
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <select class="am-form-field">
+            <option>请选择</option>
+            <option>博士</option>
+            <option>硕士</option>
+            <option>本科</option>
+            <option>专科</option>
+            <option>高中</option>
+            <option>初中</option>
+            <option>小学</option>
+          </select>
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          籍贯
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          <small>户籍所在地</small>
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          子女状况
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          邮箱
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="email">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          QQ
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          微信
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          现住址
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          居住时间
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          兴趣爱好
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-12 am-margin-top-xs">
+          <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+        </div>
+      </div>
+    </li>
+
+    <!--客户工作单位信息-->
+    <li>
+      <div class="am-list-div">
+        客户工作单位信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <div class="am-u-sm-3 am-u-md-2">
+          公司名称
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          公司电话
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          公司地址
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          所在部门
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          职务
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          收入状况
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-12 am-margin-top-xs">
+          <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+        </div>
+      </div>
+    </li>
+
+    <!--客户配偶信息-->
+    <li>
+      <div class="am-list-div">
+        客户配偶信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <div class="am-u-sm-3 am-u-md-2">
+          姓名
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          年龄
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          手机号码
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          公司名称
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          公司电话
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          公司地址
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          职务
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="text">
+        </div>
+        <div class="am-u-sm-3 am-u-md-2">
+          收入状况
+        </div>
+        <div class="am-u-sm-9 am-u-md-4">
+          <input class="am-form-field" type="number">
+        </div>
+        <div class="am-u-sm-12 am-margin-top-xs">
+          <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+        </div>
+      </div>
+    </li>
+
+    <!--客户房产信息-->
+    <li>
+      <div class="am-list-div">
+        客户房产信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <ul class="am-list am-list-2">
+          <li>
+            <div class="am-list-house">
+              房产1<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                房产类型
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                房产地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                房屋面积
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="date">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买价格
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                贷款金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否按揭
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                按揭金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否抵押
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                抵押金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+
+              <div class="am-u-sm-3 am-u-md-2">
+                月供款
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                产权比例
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                共有人
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                使用情况
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                租金
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="am-list-house">
+              房产2<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                房产类型
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                房产地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                房屋面积
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="date">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买价格
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                贷款金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否按揭
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                按揭金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否抵押
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                抵押金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+
+              <div class="am-u-sm-3 am-u-md-2">
+                月供款
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                产权比例
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                共有人
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                使用情况
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                租金
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!--客户车产信息-->
+    <li>
+      <div class="am-list-div">
+        客户车产信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <ul class="am-list am-list-2">
+          <li>
+            <div class="am-list-house">
+              车产1<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                车辆品牌
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                车辆型号
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                车牌号
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                行驶里程
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="date">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买价格
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否按揭
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                按揭金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否抵押
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                抵押金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+
+              <div class="am-u-sm-3 am-u-md-2">
+                月供款
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="am-list-house">
+              车产2<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                车辆品牌
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                车辆型号
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                车牌号
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                行驶里程
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="date">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                购买价格
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否按揭
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                按揭金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                是否抵押
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                抵押金额
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+
+              <div class="am-u-sm-3 am-u-md-2">
+                月供款
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!--客户公司信息-->
+    <li>
+      <div class="am-list-div">
+        客户公司信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <ul class="am-list am-list-2">
+          <li>
+            <div class="am-list-house">
+              公司1<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                公司名称
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                注册地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                办公地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                注册资本
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                成立时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="date">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                经营时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                公司性质
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                主营业务
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                实收资本
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                股权结构
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="am-list-house">
+              公司2<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                公司名称
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                注册地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                办公地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                注册资本
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                成立时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="date">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                经营时间
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                公司性质
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                主营业务
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                实收资本
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                股权结构
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!--其他联系人-->
+    <li>
+      <div class="am-list-div">
+        其他联系人信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <ul class="am-list am-list-2">
+          <li>
+            <div class="am-list-house">
+              联系人1<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                姓名
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                关系
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                联系电话
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                知悉贷款
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="am-list-house">
+              联系人2<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="am-u-sm-3 am-u-md-2">
+                姓名
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                关系
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                联系电话
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                地址
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <input class="am-form-field" type="text">
+              </div>
+              <div class="am-u-sm-3 am-u-md-2">
+                知悉贷款
+              </div>
+              <div class="am-u-sm-9 am-u-md-4">
+                <select class="am-form-field">
+                  <option>请选择</option>
+                  <option>是</option>
+                  <option>否</option>
+                </select>
+              </div>
+
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!--客户跟踪信息-->
+    <li>
+      <div class="am-list-div">
+        客户跟踪信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide">
+        <ul class="am-list am-list-3">
+          <li>
+            <div class="am-list-house">
+              2017年11月12日<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+
+              <textarea class="am-form-field" rows="4"></textarea>
+
+              <div class="am-u-sm-12 am-margin-top-xs">
+                <button class="am-btn am-btn-block am-btn-warning">确认提交</button>
+              </div>
+            </div>
+          </li>
+          <li>
+            <div class="am-list-house">
+              2017年11月01日<i class="am-icon-chevron-right am-align-right"></i>
+            </div>
+            <div class="am-g am-hide">
+              <div class="my-article">
+                <p class="am-text-truncate">
+                  今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是今天你干了什么。干了深按揭第七集去是嘛是
+                </p>
+                <a class="am-align-right am-margin-right a-extent">[展开]</a>
+              </div>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+    <!--客户证件信息-->
+    <li>
+      <div class="am-list-div">
+        客户证件信息<i class="am-icon-chevron-right am-align-right"></i>
+      </div>
+      <div class="am-g am-hide am-text-center am-padding-top-xs">
+        <div class="am-u-sm-4">
+          <img src="../../img/customer_info/客户信用资料.png">
+          <span>身份证(正面)</span>
+        </div>
+        <div class="am-u-sm-4">
+          <img src="../../img/customer_info/客户信用资料.png">
+          <span>身份证(背面)</span>
+        </div>
+        <div class="am-u-sm-4">
+          <img src="../../img/customer_info/客户信用资料.png">
+          <span>房产证</span>
+        </div>
+      </div>
+    </li>
+
+  </ul>
+
+  <div>
+    <a class="am-btn am-btn-warning am-btn-bottom">收起 </a>
+  </div>
+</div>
+
+
+<script src="../../js/jquery.js"></script>
+<script>
+  $('.am-list-div').click(function () {
+    var liNode = this.parentNode;
+    var iNode = $(this).children('i')[0];
+    var hideNode = $(liNode).children('div')[1];
+
+    var iN = $(iNode);
+    var hNode = $(hideNode);
+
+    iN.toggleClass('am-icon-chevron-right');
+    iN.toggleClass('am-icon-chevron-down');
+
+    hNode.toggleClass('am-hide');
+  });
+
+  $('.am-list-house').click(function () {
+    var liNode = this.parentNode;
+    var iNode = $(this).children('i')[0];
+    var hideNode = $(liNode).children('div')[1];
+
+    var iN = $(iNode);
+    var hNode = $(hideNode);
+
+    iN.toggleClass('am-icon-chevron-right');
+    iN.toggleClass('am-icon-chevron-down');
+
+    hNode.toggleClass('am-hide');
+  });
+
+  $('.a-extent').click(function () {
+
+
+    var parentN = this.parentNode;
+    var pNode = $(parentN).children('p')[0];
+
+    var pN = $(pNode);
+
+    var text = $(this).html();
+
+
+    if (text === '[展开]') {
+      pN.css('white-space', 'normal');
+      this.innerHTML = '[收起]';
+    } else {
+      pN.css('white-space', 'nowrap');
+      this.innerHTML = '[展开]';
+    }
+
+  })
+</script>
+</body>
+</html>
