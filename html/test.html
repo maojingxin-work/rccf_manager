@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>汉语转拼音</title>
+  <meta name="viewport" content="width=device-width">
+</head>
+<body>
+  <div style="width: 500px; height: 300px;border: solid 1px #ffbe40; margin: 2em auto;">
+    <textarea id="hanyu" onchange="doPinyin(this)" style="width: 100%;height: 100%">
+
+    </textarea>
+  </div>
+  <div style="width: 500px; height: 300px;border: solid 1px #ffbe40; margin: 2em auto;">
+    <textarea id="pinyin" style="width: 100%;height: 100%">
+
+    </textarea>
+  </div>
+<script src="../js/pinyin.js"></script>
+<script>
+  var pinyin  = document.getElementById('pinyin');
+
+
+
+  function doPinyin(obj) {
+    var hanyuV = obj.value;
+    var pinyinV = codefans_net_CC2PY(hanyuV);
+
+    console.log(hanyuV);
+    console.log(pinyinV);
+    pinyin.value = pinyinV;
+  }
+
+</script>
+</body>
+</html>
