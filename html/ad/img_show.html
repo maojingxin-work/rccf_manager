@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>展业海报</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../../css/app/normalize.css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="../../css/animate.css">
+  <link rel="stylesheet" href="../../css/extension/img_show.css">
+</head>
+<body>
+<div class="main">
+  <div class="thumbnail">
+    <p>
+      <span>本图可长按保存后使用</span>
+      <a></a>
+    </p>
+    <img class="animated s1" src="img/extension2.jpg" width="100%">
+    <p>
+      <span>套图生成问题？</span>
+    </p>
+
+    <label><i class="fa fa-heart-o"></i> 收藏海报</label>
+  </div>
+
+  <div class="service">
+    <p><i class="fa fa-check-square-o"></i> 同意《展业海报服务协议》</p>
+    <div class="service-form">
+      <button>免费生成海报(带水印)</button>
+      <button>微信支付2.99去水印</button>
+      <button>成为会员全场免费去水印</button>
+      <button>佣金支付2.99元去水印</button>
+      <div class="service-in">
+        <label>姓名</label>
+        <input type="text" placeholder="健健康康">
+      </div>
+      <div class="service-in">
+        <label>手机</label>
+        <input type="number" placeholder="1688888888">
+      </div>
+
+    </div>
+  </div>
+</div>
+<script src="../../js/self_adaption.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+
+  //TODO 收藏海报功能
+  $('.thumbnail label').click(function () {
+    var iNode = $(this).children('i')[0];
+    var iNo = $(iNode);
+    if (iNo.hasClass('fa-heart-o')) {
+      this.innerHTML = '<i class="fa fa-heart" style="' +
+          'color:#f35842;"></i> 取消收藏';
+    } else {
+      this.innerHTML = '<i class="fa fa-heart-o" style="color: #333333;"></i> 收藏海报';
+    }
+  })
+</script>
+</body>
+</html>
