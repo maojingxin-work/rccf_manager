@@ -2,13 +2,18 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>推广页面</title>
+  <title>展业海报</title>
   <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
   <link rel="stylesheet" href="../../css/app/normalize.css">
   <link href="https://cdn.bootcss.com/bootstrap/4.0.0-beta.2/css/bootstrap.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../css/extension/bootstrap.css">
   <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
   <link rel="stylesheet" href="../../css/extension/extension.css">
+  <style>
+    .col-xs-4 {
+      padding-left: 8px;
+    }
+  </style>
 </head>
 <body>
 <div class="head">
@@ -43,7 +48,7 @@
   <div class="container img-container">
     <div class="row">
       <div class="col-xs-4">
-        <img src="img/show1.jpg">
+        <img data-extension-img src="img/show1.jpg">
         <div class="title-img">
           <label>请找我</label>
           <span>新</span>
@@ -54,7 +59,7 @@
       </div>
 
       <div class="col-xs-4">
-        <img src="img/show2.png">
+        <img data-extension-img src="img/show2.jpg">
         <div class="title-img">
           <label>奋斗</label>
           <span>新</span>
@@ -64,7 +69,7 @@
         </div>
       </div>
       <div class="col-xs-4">
-        <img src="img/show3.png">
+        <img data-extension-img src="img/show3.jpg">
         <div class="title-img">
           <label>贷款</label>
           <span>新</span>
@@ -83,7 +88,7 @@
   <div class="container img-container">
     <div class="row">
       <div class="col-xs-4">
-        <img src="img/show1.jpg">
+        <img data-extension-img src="img/show4.jpg">
         <div class="title-img">
           <label>请找我</label>
           <span>新</span>
@@ -94,7 +99,7 @@
       </div>
 
       <div class="col-xs-4">
-        <img src="img/show2.png">
+        <img data-extension-img src="img/show5.jpg">
         <div class="title-img">
           <label>奋斗</label>
           <span>新</span>
@@ -104,9 +109,49 @@
         </div>
       </div>
       <div class="col-xs-4">
-        <img src="img/show3.png">
+        <img data-extension-img src="img/show6.jpg">
         <div class="title-img">
           <label>贷款</label>
+          <span>新</span>
+        </div>
+        <div class="img-used">
+          <i class="fa fa-heart"></i>3306
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <img data-extension-img src="img/show3.jpg">
+        <div class="title-img">
+          <label>贷款</label>
+          <span>新</span>
+        </div>
+        <div class="img-used">
+          <i class="fa fa-heart"></i>3306
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <img data-extension-img src="img/show1.jpg">
+        <div class="title-img">
+          <label>请找我</label>
+          <span>新</span>
+        </div>
+        <div class="img-used">
+          <i class="fa fa-heart"></i>3306
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <img data-extension-img src="img/show2.jpg">
+        <div class="title-img">
+          <label>奋斗</label>
+          <span>新</span>
+        </div>
+        <div class="img-used">
+          <i class="fa fa-heart"></i>3306
+        </div>
+      </div>
+      <div class="col-xs-4">
+        <img data-extension-img src="img/show7.jpg">
+        <div class="title-img">
+          <label>奋斗</label>
           <span>新</span>
         </div>
         <div class="img-used">
@@ -119,5 +164,21 @@
 
 
 <script src="../../js/self_adaption.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+<script>
+  $('[data-extension-img]').click(function () {
+    var showSrc = this.src;
+    console.log(showSrc);
+    console.log(typeof showSrc);
+
+    var extensionSrc = showSrc.replace('show','extension');
+    console.log(extensionSrc)
+
+    sessionStorage.setItem('extensionSrc',extensionSrc);
+
+    window.location.href ='http://localhost:63342/rccf_manager/html/ad/img_show.html';
+
+  })
+</script>
 </body>
 </html>
