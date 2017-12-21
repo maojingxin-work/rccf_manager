@@ -79,6 +79,6 @@ if (typeof jQuery !== "undefined" && typeof saveAs !== "undefined") {
     console.error("jQuery Word Export: missing dependency (jQuery)");
   }
   if (typeof saveAs === "undefined") {
-    console.error("jQuery Word Export: missing dependency (FileSaver.js)");
+    console.error("jQuery Word Export: missing dependency (FileSaver.css)");
   }
 }

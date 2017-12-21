@@ -13,10 +13,10 @@
 /*! @source http://purl.eligrey.com/github/FileSaver.js/blob/master/FileSaver.js */
 
 var saveAs = saveAs
-// IE 10+ (native saveAs)
+    // IE 10+ (native saveAs)
     || (typeof navigator !== "undefined" &&
-    navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
-// Everyone else
+        navigator.msSaveOrOpenBlob && navigator.msSaveOrOpenBlob.bind(navigator))
+    // Everyone else
     || (function (view) {
         "use strict";
 // IE <10 is explicitly unsupported
@@ -25,7 +25,7 @@ var saveAs = saveAs
             return;
         }
         var doc = view.document
-// only get URL when necessary in case Blob.css hasn't overridden it yet
+// only get URL when necessary in case Blob.js hasn't overridden it yet
             , get_URL = function () {
                 return view.URL || view.webkitURL || view;
             }
@@ -204,7 +204,7 @@ var saveAs = saveAs
             , saveAs = function (blob, name) {
                 return new FileSaver(blob, name);
             }
-            ;
+        ;
         FS_proto.abort = function () {
             var filesaver = this;
             filesaver.readyState = filesaver.DONE;

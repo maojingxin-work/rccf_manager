@@ -8,6 +8,11 @@ body {
   overflow-y: auto;
 }
 
+.load-hide {
+  display: none;
+}
+
+
 .main {
   font-size: 0.4rem;
   padding-left: 0.4rem;
