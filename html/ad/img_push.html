@@ -1,0 +1,232 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>海报模板上传</title>
+  <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
+  <link rel="stylesheet" href="../../css/app/normalize.css">
+  <link rel="stylesheet" href="../../css/extension/img_push.css">
+  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+</head>
+<body>
+<div class="container">
+  <h1>
+    融成海报上传页
+  </h1>
+  <div>
+    <label>上传图片：</label>
+    <div data-img-push class="img-container">
+      <span>点击上传图片</span>
+      <img id="img" class="hide" src="">
+      <input id="img_push" class="hide" type="file" accept="image/*">
+    </div>
+  </div>
+  <div class="text-area-btn">
+    <!--<button id="add"><i class="fa fa-plus-square-o"></i> 添加文本内容</button>-->
+    <button id="submit"><i class="fa fa-cloud-upload"></i> 提交海报模板</button>
+  </div>
+
+  <div class="">
+    <h3>姓名设置 </h3>
+    <div class="text-area">
+      <label>文本内容：</label>
+      <input type="text">
+    </div>
+    <div class="text-area">
+      <label>文本字体：</label>
+      <input type="text">
+    </div>
+    <div class="text-area">
+      <label>字体大小：</label>
+      <input type="number">px
+    </div>
+    <div class="text-area">
+      <label>文本颜色：</label>
+      <select style="width: 5em;">
+        <option>黑色</option>
+        <option>白色</option>
+        <option>黄色</option>
+        <option>蓝色</option>
+        <option>青色</option>
+        <option>红色</option>
+        <option>粉色</option>
+        <option>绿色</option>
+        <option>灰色</option>
+      </select>
+    </div>
+    <div class="text-area">
+      <label>字透明度：</label>
+      <input type="number" max="1" min="0" step="0.1" value="1" style="width: 4em;padding-left: 1em">(最大1，最小0)
+    </div>
+    <div class="text-area">
+      <label>水平距离：</label>
+      <input type="number">px
+    </div>
+    <div class="text-area">
+      <label>垂直距离：</label>
+      <input type="number">px
+    </div>
+  </div>
+  <div class="">
+    <h3>联系方式设置 </h3>
+    <div class="text-area">
+      <label>文本内容：</label>
+      <input type="text">
+    </div>
+    <div class="text-area">
+      <label>文本字体：</label>
+      <input type="text">
+    </div>
+    <div class="text-area">
+      <label>字体大小：</label>
+      <input type="number">px
+    </div>
+    <div class="text-area">
+      <label>文本颜色：</label>
+      <select style="width: 5em;">
+        <option>黑色</option>
+        <option>白色</option>
+        <option>黄色</option>
+        <option>蓝色</option>
+        <option>青色</option>
+        <option>红色</option>
+        <option>粉色</option>
+        <option>绿色</option>
+        <option>灰色</option>
+      </select>
+    </div>
+    <div class="text-area">
+      <label>字透明度：</label>
+      <input type="number" max="1" min="0" step="0.1" value="1" style="width: 4em;padding-left: 1em">(最大1，最小0)
+    </div>
+    <div class="text-area">
+      <label>水平距离：</label>
+      <input type="number">px
+    </div>
+    <div class="text-area">
+      <label>垂直距离：</label>
+      <input type="number">px
+    </div>
+  </div>
+
+</div>
+  <script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.min.js"></script>
+  <script>
+    var image = '';
+    $("[data-img-push]").click(function () {
+
+      var pNode = $(this);
+
+      var img_p = document.getElementById('img_push');
+
+      img_p.click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+      $(img_p).on("change", function () {
+        var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+        if (objUrl) {
+          $("#img").attr("src", objUrl); //将图片路径存入src中，显示出图片
+          $("#img").removeClass('hide');
+        }
+
+        if(!this.files || !this.files[0]){
+          alert('请上传图片后再提交');
+          return;
+        }
+        var reader = new FileReader();
+        reader.onload = function(evt){
+          image = evt.target.result;
+          console.log(image);
+        };
+        reader.readAsDataURL(this.files[0]);
+
+        var spNode = pNode.children('span')[0];
+        $(spNode).addClass('hide');
+      });
+    });
+
+    function getObjectURL(file) {
+      var url = null;
+      if (window.createObjectURL != undefined) { // basic
+        url = window.createObjectURL(file);
+      } else if (window.URL != undefined) { // mozilla(firefox)
+        url = window.URL.createObjectURL(file);
+      } else if (window.webkitURL != undefined) { // webkit or chrome
+        url = window.webkitURL.createObjectURL(file);
+      }
+      return url;
+    }
+
+    var count = 1;
+
+    $('#add').click(function () {
+      var str = '';
+      str += ' <div data-text-area>\n' +
+          '    <h3>文本域  <i class="fa fa-remove" onclick="removePNOde(this)"></i></h3>\n'+
+          '    <div class="text-area">\n' +
+          '      <label>文本内容：</label>\n' +
+          '      <input type="text" placeholder="行 '+count+' ">\n' +
+          '    </div>\n' +
+          '    <div class="text-area">\n' +
+          '      <label>文本字体：</label>\n' +
+          '      <input type="text">\n' +
+          '    </div>\n' +
+          '    <div class="text-area">\n' +
+          '      <label>字体大小：</label>\n' +
+          '      <input type="number">px\n' +
+          '    </div>\n' +
+          '    <div class="text-area">\n' +
+          '      <label>文本颜色：</label>\n' +
+          '      <select style="width: 5em;">\n' +
+          '        <option>黑色</option>\n' +
+          '        <option>白色</option>\n' +
+          '        <option>黄色</option>\n' +
+          '        <option>蓝色</option>\n' +
+          '        <option>青色</option>\n' +
+          '        <option>红色</option>\n' +
+          '        <option>粉色</option>\n' +
+          '        <option>绿色</option>\n' +
+          '        <option>灰色</option>\n' +
+          '      </select>\n' +
+          '    </div>\n' +
+          '    <div class="text-area">\n' +
+          '      <label>字透明度：</label>\n' +
+          '      <input type="number" max="1" min="0" step="0.1" value="1" style="width: 4em;padding-left: 1em">(最大1，最小0)\n' +
+          '    </div>\n' +
+          '\n' +
+          '    <div class="text-area">\n' +
+          '      <label>水平距离：</label>\n' +
+          '      <input type="number">px\n' +
+          '    </div>\n' +
+          '    <div class="text-area">\n' +
+          '      <label>垂直距离：</label>\n' +
+          '      <input type="number">px\n' +
+          '    </div>\n' +
+          '\n' +
+          '  </div>';
+      $('.container').append(str);
+      count++;
+    });
+
+    function removePNOde(obj) {
+      var hNode = obj.parentNode;
+      var pNode = hNode.parentNode;
+      var gNode = pNode.parentNode;
+      gNode.removeChild(pNode);
+      count--;
+    }
+
+    $('#submit').click(function () {
+
+
+
+
+      var jsonObj = {};
+
+      $('[data-text-area]').each(function () {
+        
+      })
+    })
+
+  </script>
+</body>
+</html>

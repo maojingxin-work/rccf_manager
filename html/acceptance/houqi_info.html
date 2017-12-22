@@ -57,7 +57,7 @@
   <link rel="stylesheet" type="text/css" href="../../css/admin.css"/>
 </head>
 <body>
-<div class="admin-content-body">
+<div class="admin-content-body am-radius">
   <div class="am-cf am-padding am-padding-bottom-0">
     <div class="am-fl am-cf">
       <strong id="back" class="am-text-primary am-text-lg">后期专员统计</strong>
@@ -175,14 +175,10 @@
   })
 </script>
 <script>
-  //jsonp解析函数
-  var commissioner = function (data) {
-    return data;
-  };
 
   //导出表格
-  var $exportLink = document.getElementById('export_1');
-  $exportLink.addEventListener('click',
+  var exportLink = document.getElementById('export_1');
+  exportLink.addEventListener('click',
       function (e) {
         e.preventDefault();
         if (e.target.nodeName === "A") {
@@ -201,7 +197,7 @@
       false);
 
 
-  function get_houqiInfo(url,jsonObj) {
+  function get_hqInfo(url,jsonObj) {
       $.ajax({
         url:url,
         data:jsonObj,
@@ -217,7 +213,7 @@
         error:function () {
 
         }
-        
+
       })
   }
 
@@ -230,7 +226,7 @@
 
 
 
-    var datas = get_houqiInfo('',jsonObj);
+    var datas = get_hqInfo('',jsonObj);
     var str = '';
     for (var i = 0; i < datas.length; i++) {
       var row = datas[i];
@@ -267,7 +263,7 @@ $(function () {
   jsonObj.start_time = thisMonth;
   jsonObj.end_time = todayDate;
 
-  var datas = get_houqiInfo('',jsonObj);
+  var datas = get_hqInfo('',jsonObj);
   var str = '';
   for (var i = 0; i < datas.length; i++) {
     var row = datas[i];
