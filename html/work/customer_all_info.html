@@ -4,9 +4,8 @@
   <meta charset="UTF-8">
   <title>客户详细信息</title>
   <meta name="viewport" content="width=device-width,initial-scale=1, user-scalable=no">
-  <link rel="stylesheet" href="../../css/amazeui.css">
-  <link rel="stylesheet" href="../../css/customer/customer_all_info.css">
-  <link href="https://cdn.bootcss.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
+  <link rel="stylesheet" href="css/amaze/amazeui.css">
+  <link rel="stylesheet" href="css/customer_all_info.css">
 </head>
 <body>
 <div>
@@ -567,14 +566,152 @@
     </div>
   </div>
 
+  <!--客户跟踪信息-->
+  <div data-info-title>
+    <div class="customer-info-title ">
+      客户跟踪信息<i class="am-icon-chevron-right am-align-right"></i>
+    </div>
+    <div class="customer-info hide">
+      <a onclick="toAddFollow(this)"
+         class="am-btn am-btn-sm am-btn-secondary am-margin-top am-margin-left am-radius">添加最新动态</a>
+      <div data-info-title>
+        <div class="customer-info-title title-2">
+          12月21日<i class="am-icon-chevron-right am-align-right"></i>
+        </div>
+        <div class="customer-info hide">
+          <a onclick="toEditPage(this)"
+             class="am-btn am-btn-sm am-btn-primary am-margin-top-sm am-align-right am-radius">编辑</a>
+          <table class="am-table am-table-bordered am-table-compact">
+            <tr>
+              <td>
+                <textarea>去拜访客户，和客户交谈</textarea>
+              </td>
+            </tr>
+            <tr class="hide">
+              <td>
+                <a class="confirm-btn">确认修改</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
 
+      <div data-info-title>
+        <div class="customer-info-title title-2">
+          12月22日<i class="am-icon-chevron-right am-align-right"></i>
+        </div>
+        <div class="customer-info hide">
+          <a onclick="toEditPage(this)"
+             class="am-btn am-btn-sm am-btn-primary am-margin-top-sm am-align-right am-radius">编辑</a>
+          <table class="am-table am-table-bordered am-table-compact">
+            <tr>
+              <td>
+                <textarea>去拜访客户，和客户交谈</textarea>
+              </td>
+            </tr>
+            <tr class="hide">
+              <td>
+                <a class="confirm-btn">确认修改</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!--客户证件信息-->
+  <div data-info-title>
+    <div class="customer-info-title ">
+      客户证件信息<i class="am-icon-chevron-right am-align-right"></i>
+    </div>
+    <div class="customer-info hide">
+      <a onclick="toAddCard(this)"
+         class="am-btn am-btn-sm am-btn-secondary am-margin-top am-margin-left am-radius">添加新证件</a>
+      <div data-info-title>
+        <div class="customer-info-title title-2">
+          身份证正面<i class="am-icon-chevron-right am-align-right"></i>
+        </div>
+        <div class="customer-info hide">
+          <a onclick="toEditPage(this)"
+             class="am-btn am-btn-sm am-btn-primary am-margin-top-sm am-align-right am-radius">编辑</a>
+          <table class="am-table am-table-bordered am-table-compact">
+            <tr>
+              <td>
+                <div onclick="uploadImg(this)" class="img-container">
+                  <span>点击上传图片</span>
+                  <img id="img" class="hide" src="">
+                  <input id="img_push" class="hide" type="file" accept="image/*">
+                </div>
+              </td>
+            </tr>
+
+            <tr class="hide">
+              <td >
+                <a class="confirm-btn">确认修改</a>
+              </td>
+            </tr>
+          </table>
+        </div>
+      </div>
+    </div>
+  </div>
 </div>
 
 
 <script src="../../js/jquery.js"></script>
+
 <script>
+  //点击上传图片功能实现
+  var image = '';
+  
+  function uploadImg(obj) {
+    var pNode = $(obj);
 
 
+    var imgNode = pNode.children('img')[0];
+
+    var img_p = pNode.children('input')[0];
+
+    img_p.click(); //隐藏了input:file样式后，点击头像就可以本地上传
+
+    $(img_p).on("change", function () {
+      var objUrl = getObjectURL(this.files[0]); //获取图片的路径，该路径不是图片在本地的路径
+      if (objUrl) {
+        $(imgNode).attr("src", objUrl); //将图片路径存入src中，显示出图片
+        $(imgNode).removeClass('hide');
+      }
+
+      if(!this.files || !this.files[0]){
+        alert('请上传图片后再提交');
+        return;
+      }
+      var reader = new FileReader();
+      reader.onload = function(evt){
+        image = evt.target.result;
+        console.log(image);
+      };
+      reader.readAsDataURL(this.files[0]);
+
+      var spNode = pNode.children('span')[0];
+      $(spNode).addClass('hide');
+    });
+  }
+
+  function getObjectURL(file) {
+    var url = null;
+    if (window.createObjectURL != undefined) { // basic
+      url = window.createObjectURL(file);
+    } else if (window.URL != undefined) { // mozilla(firefox)
+      url = window.URL.createObjectURL(file);
+    } else if (window.webkitURL != undefined) { // webkit or chrome
+      url = window.webkitURL.createObjectURL(file);
+    }
+    return url;
+  }
+
+</script>
+<script>
   //编辑事件
   function toEditPage(obj) {
     var pNode = obj.parentNode;
@@ -585,7 +722,7 @@
     $(trNode).removeClass('hide');
   }
 
-  //添加 房产 车产 公司 联系人
+  //添加 房产 车产 公司 联系人 跟踪信息 证件信息
   function toAddHouse(obj) {
     var pNode = obj.parentNode;
     var str = '';
@@ -868,6 +1005,69 @@
 
     $(pNode).append(str);
   }
+  function toAddFollow(obj) {
+    var pNode = obj.parentNode;
+    var str = '';
+    str += '<div data-info-title>\n' +
+        '        <div onclick="extension(this)" class="customer-info-title title-2">\n' +
+        '          新增跟踪信息<i class="am-icon-chevron-right am-align-right"></i>&emsp;<span onclick="removeP(this)" class="am-icon-trash-o am-text-danger am-align-left"></span>\n' +
+        '        </div>\n' +
+        '        <div class="customer-info hide">\n' +
+
+        '          <table class="am-table am-table-bordered am-table-compact">\n' +
+        '            <tr>\n' +
+        '              <td>\n' +
+        '                <textarea>去拜访客户，和客户交谈</textarea>\n' +
+        '              </td>\n' +
+        '            </tr>' +
+        '\n' +
+        '            <tr class="">\n' +
+        '              <td>\n' +
+        '                <a class="confirm-btn">确认修改</a>\n' +
+        '              </td>\n' +
+        '            </tr>\n' +
+        '          </table>\n' +
+        '        </div>\n' +
+        '      </div>';
+
+    $(pNode).append(str);
+  }
+  function toAddCard(obj) {
+    var pNode = obj.parentNode;
+    var str = '';
+    str += '<div data-info-title>\n' +
+        '        <div onclick="extension(this)" class="customer-info-title title-2">\n' +
+        '          新增证件信息<i class="am-icon-chevron-right am-align-right"></i>&emsp;<span onclick="removeP(this)" class="am-icon-trash-o am-text-danger am-align-left"></span>\n' +
+        '        </div>\n' +
+        '        <div class="customer-info hide">\n' +
+
+        '          <table class="am-table am-table-bordered am-table-compact">\n' +
+        '            <tr>\n' +
+        '              <td>\n' +
+        '                <input type="text" placeholder="证件名称">\n' +
+        '              </td>\n' +
+        '            </tr>' +
+        '             <tr>\n' +
+        '              <td>\n' +
+        '                <div onclick="uploadImg(this)" class="img-container">\n' +
+        '                  <span>点击上传图片</span>\n' +
+        '                  <img class="hide" src="">\n' +
+        '                  <input  class="hide" type="file" accept="image/*">\n' +
+        '                </div>\n' +
+        '              </td>\n' +
+        '            </tr>' +
+        '\n' +
+        '            <tr class="">\n' +
+        '              <td>\n' +
+        '                <a class="confirm-btn">确认修改</a>\n' +
+        '              </td>\n' +
+        '            </tr>\n' +
+        '          </table>\n' +
+        '        </div>\n' +
+        '      </div>';
+
+    $(pNode).append(str);
+  }
 
 </script>
 <script>
@@ -900,6 +1100,7 @@
       $(child_2).addClass('hide');
     }
   }
+
   $('.customer-info-title').click(function () {
     var pNode = this.parentNode;
     var childNodes = $(pNode).children('div');
@@ -918,6 +1119,7 @@
       $(child_2).addClass('hide');
     }
   })
+
 </script>
 </body>
 </html>
