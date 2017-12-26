@@ -7,8 +7,10 @@
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/basic.css">
   <link rel="stylesheet" href="css/send.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
 </head>
 <body>
+
 <div class="container">
   <div class="row">
     <table class="a-table">
@@ -55,9 +57,50 @@
 <div class="container a-margin-top">
   <div class="row">
     <p>上传照片附件</p>
-    <div  class="col-33">
-      <img onclick="uploadImg(this)"  src="img/add.png">
-      <input  type="file" class="hide" accept="image/*">
+    <div class="col-33">
+      <img onclick="uploadImg(this)" src="img/add.png">
+      <input type="file" class="hide" accept="image/*">
+    </div>
+  </div>
+</div>
+
+<div class="a-btn-group">
+  <button class="a-btn">提交客户资料</button>
+</div>
+
+<div class="popup hide">
+  <div class="container">
+    <div class="col-5">
+      <a class="a-hq">李由</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">席颖雪</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">武丽</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">邢舫</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">童晓东</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">李嫚</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">陈韵灿</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">张爽</a>
+    </div>
+    <div class="col-5">
+      <a class="a-hq">杨亮</a>
+    </div>
+
+
+    <div class="back">
+      <i class="fa fa-times-circle-o "></i>
     </div>
   </div>
 </div>
@@ -87,7 +130,7 @@
         $(imgNode).attr("src", objUrl); //将图片路径存入src中，显示出图片
         console.log($(imgNode).attr('src'));
         $(imgNode).removeClass('hide');
-        var str='';
+        var str = '';
         str += '<div onclick="uploadImg(this)" class="col-33">\n' +
             '      <img  src="img/add.png">\n' +
             '      <input  type="file" class="hide">\n' +
@@ -107,7 +150,6 @@
       };
       reader.readAsDataURL(this.files[0]);
     });
-
 
 
   }

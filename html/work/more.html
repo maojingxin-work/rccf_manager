@@ -2,12 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <title>融成办公系统</title>
+  <title>全部事项</title>
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/basic.css">
-  <link rel="stylesheet" href="css/index.css">
-
+  <link rel="stylesheet" href="css/more.css">
 </head>
 <body>
 <div class="content">
@@ -15,7 +14,7 @@
   <div class="container">
     <div class="row">
       <div data-nav-bar="1" class="col-5 nav-bar active">
-        通知
+        待办事项
         <sup>11</sup>
       </div>
       <div data-nav-bar="2" class="col-5 nav-bar">已办事项</div>
@@ -46,7 +45,19 @@
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice-all">查看全部 >></li>
+      <li class="notice">
+        <span>客户小王八蛋来找你了，快到前台来啊---速度</span>
+        <label>11-01</label>
+        <label>11:01</label>
+      </li>
+      <li class="notice">
+        <span>客户小王八蛋来找你了，快到前台来啊---速度</span>
+        <label>11-01</label>
+        <label>11:01</label>
+      </li>
+
+
+
     </ul>
     <ul data-nav="2" class="nav-block hide">
       <li class="notice">
@@ -74,27 +85,10 @@
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice-all">查看全部 >></li>
     </ul>
+
   </div>
 
-  <div class="personal-customer">
-    个人客户管理
-  </div>
-
-</div>
-
-<div class="tab-bar">
-  <div class="row ">
-    <div class="col-5 tab-bar-on">
-      <img src="img/index_on.jpg">
-      <p>个人</p>
-    </div>
-    <div class="col-5">
-      <img src="img/data.png">
-      <p>数据统计</p>
-    </div>
-  </div>
 </div>
 
 
@@ -120,10 +114,6 @@
       block_2.removeClass('hide');
     }
   });
-
-  $('.personal-customer').click(function () {
-    window.location.href = 'customer.html'
-  })
 </script>
 </body>
 </html>
