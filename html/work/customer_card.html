@@ -12,6 +12,22 @@
     body {
       background-color: #fff;
     }
+    .popup{
+
+    }
+    .popup img{
+      display: inline-block;
+      margin-left: 0.4rem;
+      width: 9.2rem;
+      height: 11rem;
+    }
+    .popup a{
+      padding-top: 0.2rem;
+      text-align: center;
+      font-size: 0.4369rem;
+      box-sizing: border-box;
+      margin-left: 1.8rem;
+    }
   </style>
 </head>
 <body>
@@ -23,6 +39,10 @@
       <input type="file" class="hide" accept="image/*">
     </div>
   </div>
+</div>
+<div class="popup hide">
+    <img  src="img/add.png">
+    <a class="a-btn a-btn-sm  a-margin-top">删除此证件信息</a>
 </div>
 <script src="js/self_adaption.js"></script>
 <script src="js/jquery.js"></script>
@@ -56,7 +76,9 @@
             '    </div>';
 
         $(pppNode).append(str);
-
+        imgNode.onclick = function () {
+          $('.popup').removeClass('hide');
+        }
       }
       if (!this.files || !this.files[0]) {
         alert('请上传图片后再提交');
