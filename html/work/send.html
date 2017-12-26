@@ -59,45 +59,48 @@
     <p>上传照片附件</p>
     <div class="col-33">
       <img onclick="uploadImg(this)" src="img/add.png">
-      <input type="file" class="hide" accept="image/*">
+      <input  type="file" class="hide" accept="image/*">
     </div>
   </div>
 </div>
 
 <div class="a-btn-group">
-  <button class="a-btn">提交客户资料</button>
+  <button id="send-customer" class="a-btn">提交客户资料</button>
 </div>
 
 <div class="popup hide">
-  <div class="container">
-    <div class="col-5">
-      <a class="a-hq">李由</a>
+  <div id="hq" class="container">
+    <div data-hq-id="1" onclick="selectHq(this)" class="col-5 ">
+      <a class="a-hq selected">李由</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="2" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">席颖雪</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="3" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">武丽</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="4" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">邢舫</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="5" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">童晓东</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="6" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">李嫚</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="7" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">陈韵灿</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="8" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">张爽</a>
     </div>
-    <div class="col-5">
+    <div data-hq-id="9" onclick="selectHq(this)" class="col-5">
       <a class="a-hq">杨亮</a>
     </div>
 
+    <div class="col-10">
+      <button id="send" class="a-btn a-btn-sm">确定提交</button>
+    </div>
 
     <div class="back">
       <i class="fa fa-times-circle-o "></i>
@@ -131,8 +134,8 @@
         console.log($(imgNode).attr('src'));
         $(imgNode).removeClass('hide');
         var str = '';
-        str += '<div onclick="uploadImg(this)" class="col-33">\n' +
-            '      <img  src="img/add.png">\n' +
+        str += '<div  class="col-33">\n' +
+            '      <img onclick="uploadImg(this)" src="img/add.png" accept="image/*">\n' +
             '      <input  type="file" class="hide">\n' +
             '    </div>';
 
@@ -146,7 +149,6 @@
       var reader = new FileReader();
       reader.onload = function (evt) {
         image = evt.target.result;
-        console.log(image);
       };
       reader.readAsDataURL(this.files[0]);
     });
@@ -165,6 +167,82 @@
     }
     return url;
   }
+</script>
+<script>
+  $('#send-customer').click(function () {
+    $('.popup').removeClass('hide');
+  });
+
+  $('.back').click(function () {
+    $('.popup').addClass('hide');
+  });
+
+  $(function () {
+    $.ajax({
+      url: '',
+      dataType: 'json',
+      success: function (result) {
+        if (result.code) {
+
+          var hq_members = result.data;
+          var str = '';
+          for (var i = 0; i < hq_members.length; i++) {
+            var hq = hq_members[i];
+            str += '<div data-hq-id="' + hq.id + '" onclick="selectHq(this)" class="col-5">\n' +
+                '      <a class="a-hq">' + hq.name + '</a>\n' +
+                '    </div>';
+          }
+          $('#hq').html(str);
+        }
+      }
+    })
+  });
+
+  function selectHq(obj) {
+    var hq = $(obj)
+    var hq_id = hq.data('hqId');
+    console.log(hq_id)
+    var hq_a = hq.children('a')[0];
+    var hq_name = $(hq_a);
+    if (hq_name.hasClass('selected')) {
+      hq_name.removeClass('selected')
+    } else {
+      $(hq_a).addClass('selected')
+    }
+  }
+
+  $('#send').click(function () {
+    var jsonObj = {};
+    var obj = [];
+
+    var trNodes = $(document).find('tr');
+    console.log(trNodes.length);
+    console.log(trNodes);
+
+    for (var i = 0; i < trNodes.length; i++) {
+      var trNode = trNodes[i];
+      console.log(trNode);
+      var inputNode = $(trNode).find('input')[0];
+      obj[i] = $(inputNode).val();
+    }
+    console.log(obj);
+    jsonObj.customer_name = obj[0];
+    jsonObj.customer_phone = obj[1];
+    jsonObj.loan_money = obj[2];
+    jsonObj.loan_type = obj[3];
+    jsonObj.loan_time = obj[4];
+    jsonObj.loan_use = obj[5];
+    jsonObj.repayment_type = obj[6];
+    jsonObj.repayment_per_month = obj[7];
+    jsonObj.repayment_source = obj[8];
+    console.log(jsonObj);
+
+    var formData = new FormData();
+
+    var img_in = $('input[type="file"]');
+    console.log(img_in);
+  })
+
 </script>
 </body>
 </html>
