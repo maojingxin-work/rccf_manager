@@ -11,17 +11,24 @@
     html,
     body {
       background-color: #fff;
+      overflow-x: hidden;
+      overflow-y: auto;
     }
     .popup{
-
+      padding-top: 2rem;
+      min-height: 100%;
+      height: 20rem;
+      overflow-x: hidden;
+      overflow-y: auto!important;
     }
     .popup img{
-      display: inline-block;
-      margin-left: 0.4rem;
-      width: 9.2rem;
+      display: block;
+      margin-left: auto;
+      margin-right: auto;
       height: 11rem;
     }
     .popup a{
+      display: inline-block;
       padding-top: 0.2rem;
       text-align: center;
       font-size: 0.4369rem;
@@ -50,7 +57,9 @@
   //点击上传图片功能实现
   var image = '';
 
-
+  $('.popup img').click(function () {
+    $('.popup').addClass('hide');
+  });
   function uploadImg(obj) {
     console.log('itppp');
     var ppNode = obj.parentNode;
