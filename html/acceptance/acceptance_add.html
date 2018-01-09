@@ -72,11 +72,57 @@
     </tr>
   </table>
 
+  <!--机构信息-->
+  <table class="am-table am-table-bordered am-text-nowrap am-table-compact am-text-center">
+    <tr>
+      <th colspan="7">机构信息</th>
+    </tr>
+
+    <tr>
+      <th>机构名称</th>
+      <th>产品名称</th>
+      <th>联系人</th>
+      <th>金额</th>
+      <th>面签人</th>
+      <th>备注</th>
+      <th>操作</th>
+    </tr>
+    <tbody id="organize">
+
+    <tr data-org-id>
+      <td><input type="text" placeholder="机构名称"></td>
+      <td><input type="text" placeholder="产品名称"></td>
+      <td><input type="text" placeholder="联系人"></td>
+      <td><input type="text" placeholder="金额"></td>
+      <td><input type="text" placeholder="面签人"></td>
+      <td><input type="text" placeholder="备注"></td>
+      <td>
+        <a onclick="updateOrg(this)" class="am-btn am-btn-warning am-btn-xs"><span
+                  class="am-icon-copy"></span> 提交
+          </a>
+        <a onclick="cancelOrg(this)" class="am-btn am-btn-danger am-btn-xs"><span
+                  class="am-icon-trash-o"></span> 取消
+         </a>
+      </td>
+    </tr>
+    </tbody>
+
+    <tr>
+      <td colspan="7">
+        <button onclick="addOrg(this)" class="am-btn am-btn-secondary">添加机构信息</button>
+      </td>
+    </tr>
+
+  </table>
+
+
   <!--贷款信息-->
   <table class="am-table am-table-bordered am-text-nowrap am-table-compact">
     <tr>
       <th colspan="8">贷款信息</th>
     </tr>
+
+
     <tr>
       <td>产品编号</td>
       <td><input type="text"></td>
@@ -122,7 +168,6 @@
   </table>
 
   <!--收支信息-->
-
   <table class="am-table am-table-bordered am-text-nowrap am-table-compact am-text-center">
     <tr>
       <th colspan="6">收支信息</th>
@@ -161,7 +206,7 @@
             '        </a>\n' +
             '        <a onclick="cancelEarn()" class="am-btn am-btn-danger am-btn-xs"><span\n' +
             '                class="am-icon-trash-o"></span> 取消\n' +
-            '       </a>'+
+            '       </a>' +
             '      </td>\n' +
             '    </tr>';
         $("#content").append(str);
@@ -182,7 +227,7 @@
         '        </a>\n' +
         '        <a onclick="cancelPay(this)" class="am-btn am-btn-danger am-btn-xs"><span\n' +
         '                class="am-icon-trash-o"></span> 取消\n' +
-        '       </a>'+
+        '       </a>' +
         '      </td>\n' +
         '    </tr>';
     $("#content").append(str);
@@ -202,23 +247,24 @@
     var input4 = ($(td4).children())[0];
 
     var jsonObj = {};
-        jsonObj.subject = $(input1).val();
-        jsonObj.amount = $(input2).val();
-        jsonObj.deal_time = $(input3).val();
-        jsonObj.description = $(input4).val();
+    jsonObj.subject = $(input1).val();
+    jsonObj.amount = $(input2).val();
+    jsonObj.deal_time = $(input3).val();
+    jsonObj.description = $(input4).val();
 
     $.ajax({
-      url:'/accept/info/incomeexpenditure',
-      data:jsonObj,
-      dataType:'json',
-      success:function (result) {
+      url: '/accept/info/incomeexpenditure',
+      data: jsonObj,
+      dataType: 'json',
+      success: function (result) {
         alert('提交成功');
       },
-      error:function () {
+      error: function () {
 
       }
     })
   }
+
   function updatePay(obj) {
     var tdNode = obj.parentNode;
     var trNode = tdNode.parentNode;
@@ -233,23 +279,120 @@
     var input4 = ($(td4).children())[0];
 
     var jsonObj = {};
-        jsonObj.subject = $(input1).val();
-        jsonObj.amount = $(input2).val();
-        jsonObj.deal_time = $(input3).val();
-        jsonObj.description = $(input4).val();
+    jsonObj.subject = $(input1).val();
+    jsonObj.amount = $(input2).val();
+    jsonObj.deal_time = $(input3).val();
+    jsonObj.description = $(input4).val();
 
     $.ajax({
-      url:'/accept/info/incomeexpenditure',
-      data:jsonObj,
-      dataType:'json',
-      success:function (result) {
+      url: '/accept/info/incomeexpenditure',
+      data: jsonObj,
+      dataType: 'json',
+      success: function (result) {
         alert('提交成功');
       },
-      error:function () {
+      error: function () {
 
       }
     })
   }
+
+function updateOrg(obj) {
+  var tdNode = obj.parentNode;
+  var trNode = tdNode.parentNode;
+
+  var ins = $(trNode).find('input');
+
+  console.log(ins);
+
+  var jsonObj = {};
+
+      jsonObj.org_name = $(ins[0]).val();
+      jsonObj.product_name = $(ins[1]).val();
+      jsonObj.org_connection = $(ins[2]).val();
+      jsonObj.amount = $(ins[3]).val();
+      jsonObj.person = $(ins[4]).val();
+      jsonObj.other_info = $(ins[5]).val();
+
+  console.log(jsonObj);
+
+}
+
+
+function cancelOrg(obj) {
+  var tdNode = obj.parentNode;
+  var trNode = tdNode.parentNode;
+  var tbNode = trNode.parentNode;
+
+  tbNode.removeChild(trNode);
+}
+  
+  
+function addOrg(obj) {
+  var tdNode = obj.parentNode;
+  var trNode = tdNode.parentNode;
+  var tbNode = trNode.parentNode;
+  var tabNode = tbNode.parentNode;
+  var tbChild = tabNode.childNodes[2];
+
+
+  var str = '';
+  str += '<tr data-org-id>\n' +
+      '      <td><input type="text" placeholder="机构名称"></td>\n' +
+      '      <td><input type="text" placeholder="产品名称"></td>\n' +
+      '      <td><input type="text" placeholder="联系人"></td>\n' +
+      '      <td><input type="text" placeholder="金额"></td>\n' +
+      '      <td><input type="text" placeholder="面签人"></td>\n' +
+      '      <td><input type="text" placeholder="备注"></td>\n' +
+      '      <td>\n' +
+      '        <a onclick="updateOrg(this)" class="am-btn am-btn-warning am-btn-xs"><span\n' +
+      '                  class="am-icon-copy"></span> 提交\n' +
+      '          </a>\n' +
+      '        <a onclick="cancelOrg(this)" class="am-btn am-btn-danger am-btn-xs"><span\n' +
+      '                  class="am-icon-trash-o"></span> 取消\n' +
+      '         </a>\n' +
+      '      </td>\n' +
+      '    </tr>';
+
+  $(tbChild).append(str);
+
+
+}
+
+$('#save').click(function () {
+  getOrg();
+});
+function getOrg() {
+  var tbNode = document.getElementById('organize');
+
+  var trNodes = $(tbNode).children('tr');
+  console.log(trNodes);
+
+  var jsonArr = [];
+  for(var i=0;i<trNodes.length;i++){
+    var ins = $(trNodes[i]).find('input');
+
+    console.log(ins);
+
+    var jsonObj = {};
+
+    jsonObj.org_name = $(ins[0]).val();
+    jsonObj.product_name = $(ins[1]).val();
+    jsonObj.org_connection = $(ins[2]).val();
+    jsonObj.amount = $(ins[3]).val();
+    jsonObj.person = $(ins[4]).val();
+    jsonObj.other_info = $(ins[5]).val();
+
+    console.log(jsonObj);
+    jsonArr.push(jsonObj);
+  }
+
+  console.log(JSON.stringify(jsonArr));
+
+
+}
+
+
 </script>
 </body>
 </html>
