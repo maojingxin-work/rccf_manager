@@ -23,21 +23,58 @@
 <div class="popup hide">
   <div class="container">
     <p class="plan-add">
-      添加方案
+      选择添加的产品
       <i class="fa fa-times-circle-o"></i>
     </p>
-
+    <ul>
+      <li data-product-id="1" onclick="selectPro(this)">
+        <p> 平安银行 — 新一贷 </p>
+      </li>
+      <li data-product-id="2" onclick="selectPro(this)">
+        <p> 哈尔滨银行 — 摘e贷 </p>
+      </li>
+      <li data-product-id="3" onclick="selectPro(this)">
+        <p> 建设银行 — 抵押贷 </p>
+      </li>
+      <li data-product-id="4" onclick="selectPro(this)">
+        <p> 平安银行 — 新一贷 </p>
+      </li>
+      <li data-product-id="5" onclick="selectPro(this)">
+        <p> 哈尔滨银行 — 摘e贷 </p>
+      </li>
+      <li data-product-id="6" onclick="selectPro(this)">
+        <p> 建设银行 — 抵押贷 </p>
+      </li>
+      <li data-product-id="7" onclick="selectPro(this)">
+        <p> 平安银行 — 新一贷 </p>
+      </li>
+      <li data-product-id="8" onclick="selectPro(this)">
+        <p> 哈尔滨银行 — 摘e贷 </p>
+      </li>
+      <li data-product-id="9" onclick="selectPro(this)">
+        <p> 建设银行 — 抵押贷 </p>
+      </li>
+      <li data-product-id="10" onclick="selectPro(this)">
+        <p> 平安银行 — 新一贷 </p>
+      </li>
+      <li data-product-id="11" onclick="selectPro(this)">
+        <p> 哈尔滨银行 — 摘e贷 </p>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="popup popup-1 hide">
+  <div class="container">
+    <p class="plan-add">
+      填写产品相关信息
+      <i class="fa fa-times-circle-o"></i>
+    </p>
     <table class="a-table">
       <tr>
-        <td>机构名称</td>
-        <td><input type="text"></td>
+       <td colspan="2">哈尔滨银行 - 贷点钱</td>
       </tr>
       <tr>
-        <td>产品名称</td>
-        <td><input type="text"></td>
-      </tr>
-      <tr>
-        <td>预贷金额</td>
+        <td>预估金额</td>
         <td><input type="text"></td>
       </tr>
       <tr>
@@ -61,6 +98,7 @@
 <script>
   $('#add_plan').click(function () {
     $('.popup').removeClass('hide');
+    $('.popup-1').addClass('hide');
   });
   $('.fa-times-circle-o').click(function () {
     $('.popup').addClass('hide');
@@ -72,51 +110,58 @@
     console.log(inps);
 
     var jsonObj = {};
-        jsonObj.org_name = $(inps[0]).val();
-        jsonObj.product_name = $(inps[1]).val();
-        jsonObj.loan_amount = $(inps[2]).val();
-        jsonObj.loan_accrual = $(inps[3]).val();
-        jsonObj.other_info = $(inps[4]).val();
-        console.log(jsonObj);
+    jsonObj.org_name = $(inps[0]).val();
+    jsonObj.product_name = $(inps[1]).val();
+    jsonObj.loan_amount = $(inps[2]).val();
+    jsonObj.loan_accrual = $(inps[3]).val();
+    jsonObj.other_info = $(inps[4]).val();
+    console.log(jsonObj);
 
-        $.ajax({
-          type:'POST',
-          url:'',
-          data:jsonObj,
-          dataType:'json',
-          success:function (result) {
-            if(result.code){
-              var info = result.data;
+    $.ajax({
+      type: 'POST',
+      url: '',
+      data: jsonObj,
+      dataType: 'json',
+      success: function (result) {
+        if (result.code) {
+          var info = result.data;
 
-              var str = '';
-              str += '<p class="loan-plan">\n' +
-                  info.org_name+' — '+ info.product_name+'\n' +
-                  '    <a>删除</a>\n' +
-                  '  </p>';
-              var str_add = '';
-              str_add += '<p id="add_plan" class="loan-plan">\n' +
-                  '    <i class="fa fa-plus-circle"></i> 添加产品\n' +
-                  '  </p>';
+          var str = '';
+          str += '<p class="loan-plan">\n' +
+              info.org_name + ' — ' + info.product_name + '\n' +
+              '    <a>删除</a>\n' +
+              '  </p>';
+          var str_add = '';
+          str_add += '<p id="add_plan" class="loan-plan">\n' +
+              '    <i class="fa fa-plus-circle"></i> 添加产品\n' +
+              '  </p>';
 
-              var content = $('#content');
-                  content.remove(str_add);
-                  content.append(str);
-                  content.append(str_add);
+          var content = $('#content');
+          content.remove(str_add);
+          content.append(str);
+          content.append(str_add);
 
-                  $('.popup').addClass('hide');
+          $('.popup').addClass('hide');
 
-            }else{
-              alert('请求超时！请稍后重试');
-            }
-          },
-          error:function () {
-            alert('请求错误！');
-          }
-        })
+        } else {
+          alert('请求超时！请稍后重试');
+        }
+      },
+      error: function () {
+        alert('请求错误！');
+      }
+    })
 
   })
 
 
+  var selectPro = function (obj) {
+    var productId = obj.dataset.productId;
+    console.log(productId);
+
+    $('.popup').addClass('hide');
+    $('.popup-1').removeClass('hide');
+  }
 </script>
 </body>
 </html>

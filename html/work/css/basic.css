@@ -52,8 +52,12 @@ body {
 .hide {
   display: none !important;
 }
-
-
+.right {
+   float: right;
+}
+.left {
+    float: left;
+}
 .col-1 {
   width: 10% !important;
 }
@@ -116,4 +120,8 @@ body {
 
 .a-margin-top {
   margin-top: 0.266rem;
+}
+
+.white {
+  background-color: #fff;
 }

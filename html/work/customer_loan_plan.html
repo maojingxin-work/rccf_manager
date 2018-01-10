@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>客户匹配方案</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="stylesheet" href="css/customer_loan_plan.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+
+</head>
+<body>
+<div class="container">
+  <ul>
+    <li>
+      <!--<a>中信银行—抵押贷<i class="fa fa-chevron-right right"></i></a>-->
+      <!--<div class="hide">-->
+      <div class="white basic-info ">
+        <h3><i class="fa fa-bank"></i> 中信银行—抵押贷</h3>
+        <div class="row">
+          <div class="col-3">预估额度：</div>
+          <div class="col-7">
+            <span>100万</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">贷款利息：</div>
+          <div class="col-7">
+            <span>2.4%</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">备注信息：</div>
+          <div class="col-7">
+            <span>此产品适合客户程度较高，建议使用</span>
+          </div>
+        </div>
+      </div>
+      <!--</div>-->
+    </li>
+    <li>
+      <!--<a>中信银行—抵押贷<i class="fa fa-chevron-right right"></i></a>-->
+      <!--<div class="hide">-->
+      <div class="white basic-info ">
+        <h3><i class="fa fa-bank"></i> 哈尔滨银行—摘e贷</h3>
+        <div class="row">
+          <div class="col-3">预估额度：</div>
+          <div class="col-7">
+            <span>100万</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">贷款利息：</div>
+          <div class="col-7">
+            <span>2.4%</span>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-3">备注信息：</div>
+          <div class="col-7">
+            <span>此产品适合客户程度较高，建议使用</span>
+          </div>
+        </div>
+      </div>
+      <!--</div>-->
+    </li>
+    <!--<li onclick="showInfo(this)">-->
+      <!--<a>中信银行—抵押贷<i class="fa fa-chevron-right right"></i></a>-->
+      <!--<div class="hide">-->
+        <!--<div class="white basic-info ">-->
+          <!--<h3><i class="fa fa-bank"></i> 中信银行—抵押贷</h3>-->
+          <!--<p>-->
+            <!--贷款金额：<span>10-1000万</span>-->
+          <!--</p>-->
+          <!--<p>-->
+            <!--贷款期限：<span>3-12个月</span>-->
+          <!--</p>-->
+        <!--</div>-->
+        <!--<div class="white condition">-->
+          <!--<h4><i class="fa fa-bars"></i> 申请条件：</h4>-->
+          <!--<ul>-->
+            <!--<li>-->
+              <!--年龄要求：<span>18-65岁</span>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--身份要求：<span>受薪人群</span>-->
+            <!--</li>-->
+            <!--<li>-->
+              <!--收入要求：<span>月入百万</span>-->
+            <!--</li>-->
+          <!--</ul>-->
+        <!--</div>-->
+      <!--</div>-->
+
+    <!--</li>-->
+  </ul>
+</div>
+
+<script src="js/self_adaption.js"></script>
+<script src="js/jquery.js"></script>
+
+<script>
+  var showInfo = function (obj) {
+    var iNode = $(obj).find('i');
+    var dNode = $(obj).children('div');
+
+    $(dNode).toggleClass('hide');
+
+    var flag = $(iNode).hasClass('fa-chevron-right');
+    if(flag){
+      $(iNode).removeClass('fa-chevron-right');
+      $(iNode).addClass('fa-chevron-down');
+    }else{
+      $(iNode).removeClass('fa-chevron-down');
+      $(iNode).addClass('fa-chevron-right');
+    }
+  }
+</script>
+</body>
+</html>
