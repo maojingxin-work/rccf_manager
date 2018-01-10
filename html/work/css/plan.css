@@ -14,13 +14,21 @@
   position: absolute;
   display: inline-block;
   background-color: #3bb4f2;
-  color:#fff;
+  color:#aa3333;
 
   right:0.5rem;
 
   font-size: 0.4rem;
 
   padding: 0.15rem;
+}
+
+.loan-plan h3 ,
+.loan-plan h3 i {
+  color:#2e6da4;
+}
+.loan-plan a i {
+  color:#aa3333;
 }
 
 .loan-plan i {
