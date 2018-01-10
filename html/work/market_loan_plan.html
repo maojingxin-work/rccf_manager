@@ -10,8 +10,8 @@
   <link rel="stylesheet" href="css/font-awesome.css">
 </head>
 <body>
-<div id="content" class="container">
-  <div data-product-number="" class="loan-plan">
+<div id="content" class="container" style="margin-bottom: 3rem;">
+  <div data-product-number="1" class="loan-plan">
     <h3><i class="fa fa-bank"></i> 中信银行—抵押贷<a onclick="removeSelf(this)"><i class="fa fa-trash-o"></i>删除</a></h3>
     <div class="row">
       <div class="col-3">预估额度：</div>
@@ -36,6 +36,9 @@
   <p id="add_plan" class="loan-plan">
     <i class="fa fa-plus-circle"></i> 添加产品
   </p>
+  <div style=" position: fixed ;width: 100%; bottom: 0.4rem;text-align: center;">
+    <button id="submit" class="a-btn">提交匹配方案</button>
+  </div>
 </div>
 
 <div class="popup hide">
@@ -46,7 +49,7 @@
     </p>
     <ul>
       <li data-product-id="1" onclick="selectPro(this)">
-         平安银行 — 新一贷
+        平安银行 — 新一贷
       </li>
       <li data-product-id="2" onclick="selectPro(this)">
         哈尔滨银行 — 摘e贷
@@ -89,7 +92,7 @@
     </p>
     <table class="a-table">
       <tr>
-       <td data-product-id="" colspan="2">哈尔滨银行 - 贷点钱</td>
+        <td data-product-id="" colspan="2">哈尔滨银行 - 贷点钱</td>
       </tr>
       <tr>
         <td>预估金额</td>
@@ -104,10 +107,11 @@
         <td><input type="text"></td>
       </tr>
     </table>
-    <div >
+    <div>
       <button id="addConfirm" class="a-btn">确认添加</button>
     </div>
   </div>
+
 </div>
 
 
@@ -139,24 +143,24 @@
 
 
     var str = '';
-    str += '<div data-product-number="'+jsonObj.product_id+'" class="loan-plan">\n' +
-        '    <h3><i class="fa fa-bank"></i> '+jsonObj.product_name+ '<a  onclick="removeSelf(this)"><i class="fa fa-trash-o"></i>删除</a></h3>\n' +
+    str += '<div data-product-number="' + jsonObj.product_id + '" class="loan-plan">\n' +
+        '    <h3><i class="fa fa-bank"></i> ' + jsonObj.product_name + '<a  onclick="removeSelf(this)"><i class="fa fa-trash-o"></i>删除</a></h3>\n' +
         '    <div class="row">\n' +
         '      <div class="col-3">预估额度：</div>\n' +
         '      <div class="col-7">\n' +
-        '        <span>'+jsonObj.loan_amount+'</span>\n' +
+        '        <span>' + jsonObj.loan_amount + '</span>\n' +
         '      </div>\n' +
         '    </div>\n' +
         '    <div class="row">\n' +
         '      <div class="col-3">贷款利息：</div>\n' +
         '      <div class="col-7">\n' +
-        '        <span>'+jsonObj.loan_rate +'</span>\n' +
+        '        <span>' + jsonObj.loan_rate + '</span>\n' +
         '      </div>\n' +
         '    </div>\n' +
         '    <div class="row">\n' +
         '      <div class="col-3">备注信息：</div>\n' +
         '      <div class="col-7">\n' +
-        '        <span>'+jsonObj.loan_other+'</span>\n' +
+        '        <span>' + jsonObj.loan_other + '</span>\n' +
         '      </div>\n' +
         '    </div>\n' +
         '  </div>';
@@ -186,14 +190,44 @@
 
     $('.popup').addClass('hide');
     $('.popup-1').removeClass('hide');
-  }
+  };
 
-
-  var removeSelf =function (obj) {
+  var removeSelf = function (obj) {
     var pNode = obj.parentNode.parentNode;
 
     document.getElementById('content').removeChild(pNode);
-  }
+  };
+
+  $('#submit').click(function () {
+    var plans = $('[data-product-number]');
+    console.log(plans);
+    console.log(plans.length);
+    if (plans.length === 0) {
+      alert('请添加匹配方案后再提交！');
+      return;
+    } else {
+      var jsonArr = [];
+      var jsonObj = {};
+      for (var i = 0; i < plans.length; i++) {
+
+        var plan = plans[i];
+        console.log(plan);
+        jsonObj.product_id = plan.dataset.productNumber;
+        var dataInfo = $(plan).find('span');
+        console.log(dataInfo);
+
+        jsonObj.loan_money = dataInfo[0].innerHTML;
+        jsonObj.loan_rate = dataInfo[1].innerHTML;
+        jsonObj.loan_other = dataInfo[2].innerHTML;
+
+
+        jsonArr.push(jsonObj);
+
+      }
+    }
+    console.log(jsonArr);
+
+  })
 </script>
 </body>
 </html>
