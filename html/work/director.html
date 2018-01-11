@@ -19,6 +19,13 @@
     <p>业绩统计</p>
   </div>
 
+  <div class="customer">
+    <div id="customer" class="customer-table">
+
+    </div>
+  </div>
+
+
   <div class="apply">
     <p>本月受理单情况</p>
     <div class="row">
@@ -35,47 +42,47 @@
         <p>拒单/撤单</p>
       </div>
     </div>
-    <div id="month_apply" class="apply-info" >
+    <div id="month_apply" class="apply-info">
 
     </div>
   </div>
 
   <div class="product">
-      <table class="a-table">
-        <caption>产品统计</caption>
-        <tr>
-          <th>产品</th>
-          <th>受理单数</th>
-          <th>总成交额</th>
-        </tr>
-        <tbody>
-          <tr>
-            <td>中国银行-抵押贷</td>
-            <td>25</td>
-            <td>1000万</td>
-          </tr>
-          <tr>
-            <td>平安普惠-信用贷</td>
-            <td>12</td>
-            <td>1000万</td>
-          </tr>
-          <tr>
-            <td>哈尔滨银行-摘e贷</td>
-            <td>6</td>
-            <td>1000万</td>
-          </tr>
-          <tr>
-            <td>中国银行</td>
-            <td>4</td>
-            <td>1000万</td>
-          </tr>
-          <tr>
-            <td>中国银行</td>
-            <td>12</td>
-            <td>1000万</td>
-          </tr>
-        </tbody>
-      </table>
+    <table class="a-table">
+      <caption>产品统计</caption>
+      <tr>
+        <th>产品</th>
+        <th>受理单数</th>
+        <th>总成交额</th>
+      </tr>
+      <tbody>
+      <tr>
+        <td>中国银行-抵押贷</td>
+        <td>25</td>
+        <td>1000万</td>
+      </tr>
+      <tr>
+        <td>平安普惠-信用贷</td>
+        <td>12</td>
+        <td>1000万</td>
+      </tr>
+      <tr>
+        <td>哈尔滨银行-摘e贷</td>
+        <td>6</td>
+        <td>1000万</td>
+      </tr>
+      <tr>
+        <td>中国银行</td>
+        <td>4</td>
+        <td>1000万</td>
+      </tr>
+      <tr>
+        <td>中国银行</td>
+        <td>12</td>
+        <td>1000万</td>
+      </tr>
+      </tbody>
+    </table>
   </div>
 </div>
 
@@ -91,7 +98,7 @@
       echarts: 'http://echarts.baidu.com/build/dist'
     }
   });
-  //可切换一 柱状图
+  //  受理单统计
   require(
       [
         'echarts',
@@ -118,6 +125,42 @@
             }
           ]
         };
+        myChart.setOption(option);
+      }
+  );
+  //  客户统计
+  require(
+      [
+        'echarts',
+        'echarts/chart/funnel' // 使用柱状图就加载bar模块，按需加载
+      ],
+      function (et) {
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = et.init(document.getElementById('customer'));
+
+        var option = {
+          title : {
+            text: '客户统计数据',
+            x: '140',
+            y: '20'
+          },
+          calculable : false,
+          series : [
+            {
+              name:'漏斗图',
+              type:'funnel',
+              width: '50%',
+              data:[
+                {value:120, name:' 一周以内 120'},
+                {value:89, name:' 一月以内 89'},
+                {value:46, name:' 三月以内 46'},
+                {value:22, name:' 三月以上 22'}
+              ]
+            }
+          ]
+        };
+
+
         myChart.setOption(option);
       }
   );

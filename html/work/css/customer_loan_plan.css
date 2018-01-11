@@ -15,6 +15,7 @@ body {
   margin-bottom: 0.266rem;
 }
 .basic-info {
+  position: relative;
   font-size: 0.466rem;
 
   margin-bottom: 0.4rem;
@@ -35,7 +36,21 @@ body {
   font-size: 0.5rem;
   color:#f0ad4e;
 }
+.lookup-btn{
+  display: inline-block;
+  position: absolute;
+  top:0.4rem;
+  right: 0.4rem;
 
+  font-size: 0.4rem !important;
+  background-color: #3bb4f2 !important;
+  color: #fff !important;
+
+  border-radius: 5px;
+
+  border: none;
+  padding: 0.2rem;
+}
 .condition {
   font-size: 0.432rem;
 
