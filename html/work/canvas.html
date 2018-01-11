@@ -6,69 +6,80 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <style>
+    * {
+      margin: 0;
+      padding: 0;
+    }
     body {
       background-color: #333;
+      overflow: hidden;
     }
 
     canvas {
+      width: 100%;
+      height: 700px;
       background-color: #fff;
-      margin-top: 10px;
-      margin-left: 10px;
       border: 1px solid #697882;
     }
 
   </style>
 </head>
 <body>
-<canvas id="fillCanvas" width="500px" height="500px"></canvas>
-<canvas id="strokeCanvas" width="300px" height="300px"></canvas>
+<canvas id="fillCanvas" ></canvas>
 <script>
   var fillCanvas = document.getElementById('fillCanvas');
-  var strokeCanvas = document.getElementById('strokeCanvas');
   var fillCtx = fillCanvas.getContext('2d');
-  var strokeCtx = strokeCanvas.getContext('2d');
+  var width = 400;
+  var height = width*16/9;
+
   console.log(fillCtx);
-  console.log(strokeCtx);
+  console.log(width);
+  console.log(height);
 
+  var img = new Image();
+  img.src='http://localhost:63342/rccf_manager/html/work/img/a.jpg';
 
+  img.onload = function () {
+    console.log(img);
+    fillCtx.drawImage(img,0,0,width,height);
 
-  var txt1 = "目标业绩";
-  var txt2 = "已完成业绩";
-  writeTitle(txt1,20,25);
-  writeTitle(txt2,20,65);
+    var txt1 = "目标业绩";
+    var txt2 = "已完成业绩";
+    writeTitle(txt1,20,25);
+    writeTitle(txt2,20,65);
 
+    fillCtx.beginPath();
+    fillCtx.fillStyle = "#f16969";
 
+    fillCtx.moveTo(100,10);
+    fillCtx.lineTo(250,10);
+    fillCtx.lineTo(230,30);
+    fillCtx.lineTo(100,30);
 
-  fillCtx.beginPath();
-  fillCtx.fillStyle = "#f16969";
+    fillCtx.fill();
+    fillCtx.closePath();
 
-  fillCtx.moveTo(100,10);
-  fillCtx.lineTo(250,10);
-  fillCtx.lineTo(230,30);
-  fillCtx.lineTo(100,30);
+    fillCtx.beginPath();
+    fillCtx.fillStyle = "#91d271";
 
-  fillCtx.fill();
-  fillCtx.closePath();
+    fillCtx.moveTo(100,50);
+    fillCtx.lineTo(400,50);
+    fillCtx.lineTo(380,70);
+    fillCtx.lineTo(100,70);
 
-  fillCtx.beginPath();
-  fillCtx.fillStyle = "#91d271";
+    fillCtx.fill();
+    fillCtx.closePath();
 
-  fillCtx.moveTo(100,50);
-  fillCtx.lineTo(400,50);
-  fillCtx.lineTo(380,70);
-  fillCtx.lineTo(100,70);
+    var goal1 = "20000";
+    var goal2 = "40000";
+    writeGoal(goal1,110,25);
+    writeGoal(goal2,110,65);
 
-  fillCtx.fill();
-  fillCtx.closePath();
-
-  var goal1 = "20000";
-  var goal2 = "40000";
-  writeGoal(goal1,110,25);
-  writeGoal(goal2,110,65);
+  };
 
   function writeTitle(txt, x, y) {
     fillCtx.beginPath();
-    fillCtx.fillStyle = "#333333";
+    fillCtx.fillStyle = "#fff";
     fillCtx.font = "14px normal kaiti";
 
 

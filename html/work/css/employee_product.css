@@ -68,3 +68,10 @@ li .col-8 {
   font-size: 0.5rem;
   margin-bottom: 0.2rem;
 }
+.con-in {
+  padding-left: 0.4rem;
+}
+.con-in li {
+  border: none;
+  list-style: decimal;
+}
