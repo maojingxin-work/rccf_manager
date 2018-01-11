@@ -12,10 +12,17 @@
 
     canvas {
       display: block;
-      width: 95%!important;
+      width: 95% !important;
       margin: 1rem auto;
 
       box-shadow: 2px 2px 1px 1px;
+    }
+
+    p {
+      text-align: center;
+      font-size: 0.4rem;
+      color: #aa3333;
+      margin-top: 0.6rem;
     }
 
     li {
@@ -26,7 +33,10 @@
   </style>
 </head>
 <body>
-<div id="content" class="container" style="background:-webkit-gradient(linear, 0 0, 0 bottom, from(#d0e9c6), to(#ffbe40))">
+
+<p ><i class="fa fa-star"></i>长按图片保存并分享</p>
+<div id="content" class="container"
+     style="background:-webkit-gradient(linear, 0 0, 0 bottom, from(#d0e9c6), to(#ffbe40))">
 
   <ul>
     <li>
@@ -83,7 +93,7 @@
 
 <script>
   var node = document.getElementById('content');
-  html2canvas(node).then(function(canvas) {
+  html2canvas(node).then(function (canvas) {
     document.body.appendChild(canvas);
 
     $('.container').addClass('hide')
