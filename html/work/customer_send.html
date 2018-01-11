@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>产品详情</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="stylesheet" href="css/employee_product.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <style>
+
+    canvas {
+      display: block;
+      width: 95%!important;
+      margin: 1rem auto;
+
+      box-shadow: 2px 2px 1px 1px;
+    }
+
+    li {
+      border-top: none;
+
+      border-bottom: 2px solid #c4e3f3;
+    }
+  </style>
+</head>
+<body>
+<div id="content" class="container" style="background:-webkit-gradient(linear, 0 0, 0 bottom, from(#d0e9c6), to(#ffbe40))">
+
+  <ul>
+    <li>
+      <h4>基础信息</h4>
+      <div class="row">
+
+        <div class="col-2">贷款类型</div>
+        <div class="col-8">信贷</div>
+
+        <div class="col-2">贷款金额</div>
+        <div class="col-8">30万</div>
+
+        <div class="col-2">贷款利率</div>
+        <div class="col-8">0.81</div>
+
+        <div class="col-2">还款方式</div>
+        <div class="col-8">等额本金</div>
+
+      </div>
+    </li>
+
+
+    <li>
+      <h4>所需材料</h4>
+      <div class="row">
+
+        <div class="col-2">个人材料</div>
+        <div class="col-8">身份证、保单、放款储蓄卡、社保卡、公积金卡、收入证明</div>
+
+        <div class="col-2">企业材料</div>
+        <div class="col-8">公司章程、流水、上下游合同、夫妻双方身份证、企业五证</div>
+      </div>
+    </li>
+    <li>
+      <h4>附加说明</h4>
+      <div class="row">
+
+        <div class="col-2">流程细节</div>
+        <div class="col-8">先进系统评分（15分钟左右）---评分结果出来后签署基本信息（30分钟---面签（30分钟）</div>
+
+        <div class="col-2">产品优势</div>
+        <div class="col-8">不与任何产品冲突；公检法，美容美发均可做</div>
+
+      </div>
+    </li>
+  </ul>
+
+</div>
+
+
+<script src="js/self_adaption.js"></script>
+<script src="js/jquery.js"></script>
+<script src="js/html2canvas.js"></script>
+
+<script>
+  var node = document.getElementById('content');
+  html2canvas(node).then(function(canvas) {
+    document.body.appendChild(canvas);
+
+    $('.container').addClass('hide')
+  });
+</script>
+</body>
+</html>
