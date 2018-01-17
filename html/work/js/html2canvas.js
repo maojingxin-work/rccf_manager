@@ -2569,8 +2569,8 @@
                                 textDecoration.textDecorationLine.forEach(function (textDecorationLine) {
                                     switch (textDecorationLine) {
                                         case _textDecoration.TEXT_DECORATION_LINE.UNDERLINE:
-                                            // Draws a line at the baseline of the font
-                                            // TODO As some browsers display the line as more than 1px if the font-size is big,
+                                            // Draws a line at the baseline of the fonts
+                                            // TODO As some browsers display the line as more than 1px if the fonts-size is big,
                                             // need to take that into account both in position and size
                                             var _options$fontMetrics$ = _this4.options.fontMetrics.getMetrics(font),
                                                 baseline = _options$fontMetrics$.baseline;
@@ -3200,7 +3200,7 @@
 
                         var body = this._document.body;
                         if (!body) {
-                            throw new Error( true ? 'No document found for font metrics' : '');
+                            throw new Error( true ? 'No document found for fonts metrics' : '');
                         }
 
                         container.style.visibility = 'hidden';
@@ -6213,7 +6213,7 @@
                                     });
                                 }).then(function (dataUri) {
                                     font.fontFace.setProperty('src', 'url("' + dataUri + '")');
-                                    return '@font-face {' + font.fontFace.cssText + ' ';
+                                    return '@fonts-face {' + font.fontFace.cssText + ' ';
                                 });
                             }));
                         }).then(function (fontCss) {

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>不 · 凡--一宅见分晓</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="css/animate.css" rel="stylesheet" type="text/css">
+  <style>
+    html, body {
+      overflow-x: hidden;
+      overflow-y: auto;
+    }
+
+    img {
+      width: 100%;
+    }
+  </style>
+</head>
+<body>
+
+<div id="images" class="animated hinge slideInUp">
+
+</div>
+
+<script src="js/jquery.js"></script>
+<script>
+  var str = '';
+
+  for (var i = 1; i < 41; i++) {
+    str += '<img src="img/' + i + '.jpg">'
+  }
+
+  $('#images').append(str);
+</script>
+</body>
+</html>
