@@ -5,10 +5,32 @@
   <title>Title</title>
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
   <link href="css/amaze/amazeui.css" rel="stylesheet" type="text/css">
+  <style>
+    html,
+    body
+    {
+      overflow: auto;
+    }
+  </style>
 </head>
 <body>
   <div class="am-container am-margin-top-xl">
-    <table class="am-table am-table-bordered am-table-compact am-table-striped">
+
+    <div class="am-g am-margin-bottom">
+      <div class="am-u-sm-12">
+        <select>
+          <option>--选择产品类型--</option>
+          <option>抵押</option>
+          <option>质押</option>
+          <option>信贷</option>
+        </select>
+        <input type="text">
+        <button><i class="am-icon-search"></i></button>
+      </div>
+    </div>
+
+
+    <table class="am-table am-table-bordered  am-text-nowrap  am-table-striped">
       <thead>
       <tr>
         <td>产品类型</td>

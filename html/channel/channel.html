@@ -110,8 +110,7 @@
 
       <i class="am-icon-file-excel-o"></i> 点击上传文件
 
-      <input name="upFile" id="upFile" class="am-hide" type="file"
-             accept="application/pdf,application/vnd.ms-excel,application/vnd.openxmlformats-officedocument.spreadsheetml.sheet,application/msword">
+      <input name="upFile" id="upFile" class="am-hide" type="file">
     </div>
 
     <div class="am-u-sm-12 am-margin-top-sm">
@@ -141,7 +140,7 @@
       var objUrl = getObjectURL(this.files[0]);
 
       if(objUrl){
-        $('#fileName').html("上传的文件为：<span class='am-text-danger'>"+this.value+"</span>");
+        $('#fileName').html("上传的文件为：<span class='am-text-danger'>"+this.value.substring(12)+"</span>");
       }
 
     });
