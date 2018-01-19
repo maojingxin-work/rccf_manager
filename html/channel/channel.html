@@ -5,58 +5,20 @@
   <title>渠道信息</title>
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
   <link href="css/amaze/amazeui.css" rel="stylesheet" type="text/css">
-  <style type="text/css">
-    .am-g h3 {
-      text-align: center;
-      background-color: #999;
-      color: #fff;
+  <link href="css/channel.css" rel="stylesheet" type="text/css">
 
-      padding: 0.2em;
-    }
-
-    .am-u-md-4 span {
-      display: inline-block;
-      width: 4.5em;
-      text-align: right;
-      padding-right: 0.4em;
-      color: #095f8a;
-    }
-
-    .am-g select,
-    .am-g input {
-      width: 11em;
-
-      color: #095f8a;
-
-      padding-left: 0.4em;
-      border: 1px solid #095f8a;
-    }
-
-    .send {
-      height: 6em;
-
-      font-size: 0.8em;
-      border: dashed 2px #999999;
-      padding-top: 1.8em;
-      text-align: center;
-    }
-
-    .send i {
-      font-size: 1.2em;
-    }
-  </style>
 </head>
 <body>
-<div class="am-container am-margin-top-xl">
+<div class="am-container am-margin-top-xl ">
   <div class="am-g">
     <h3>产品基本信息</h3>
     <div class="am-u-sm-12 am-u-md-4 ">
       <span>产品类型</span>
       <select id="product_type">
-        <option>--选择产品的类型--</option>
-        <option>抵押</option>
-        <option>质押</option>
-        <option>信贷</option>
+        <option value="0">--选择产品的类型--</option>
+        <option value="1">抵押</option>
+        <option value="2">质押</option>
+        <option value="3">信贷</option>
       </select>
     </div>
     <div class="am-u-sm-12 am-u-md-4 ">
@@ -71,9 +33,17 @@
       <span>推荐人</span>
       <input id="product_person" type="text">
     </div>
+    <div class="am-u-sm-12 am-u-md-4 am-margin-top-sm">
+      <span>对接人</span>
+      <input id="product_aubtting" type="text">
+    </div>
     <div class="am-u-sm-12 am-u-md-4 am-margin-top-sm am-u-end">
       <span>准入时间</span>
       <input id="product_time" type="date">
+    </div>
+    <div class="am-u-sm-12 am-margin-top-sm am-u-end">
+      <span>地点</span>
+      <input id="product_area" class="product_area" type="text">
     </div>
   </div>
 
@@ -99,9 +69,31 @@
       <span>职位</span>
       <input id="channel_duty" type="text">
     </div>
-    <div class="am-u-sm-12 am-u-md-4 am-margin-top-sm am-u-end">
-      <span>描述信息</span>
-      <input id="channel_info" type="text">
+
+    <div class="am-u-sm-12 fy">
+      <div class="am-u-sm-12 am-u-md-4 am-margin-top-sm am-u-end">
+        <span>上扣费用</span>
+        <input id="channel_up" type="text">
+      </div>
+      <div class="am-u-sm-12 am-u-md-4 am-margin-top-sm am-u-end">
+        <span>返费</span>
+        <input id="channel_back" type="text">
+      </div>
+    </div>
+
+
+
+    <div class="am-u-sm-12 am-margin-top-sm am-u-end">
+      <span>优劣势</span>
+      <input id="channel_swot" class="product_area" type="text">
+    </div>
+    <div class="am-u-sm-12 am-margin-top-sm am-u-end">
+      <span>特殊说明</span>
+      <input id="channel_special" class="product_area" type="text">
+    </div>
+    <div class="am-u-sm-12 am-margin-top-sm am-u-end">
+      <span>备注</span>
+      <input id="channel_info" class="product_area" type="text">
     </div>
   </div>
 
@@ -158,11 +150,11 @@
 
   function getObjectURL(file) {
     var url = null;
-    if (window.createObjectURL != undefined) { // basic
+    if (window.createObjectURL !== undefined) { // basic
       url = window.createObjectURL(file);
-    } else if (window.URL != undefined) { // mozilla(firefox)
+    } else if (window.URL !== undefined) { // mozilla(firefox)
       url = window.URL.createObjectURL(file);
-    } else if (window.webkitURL != undefined) { // webkit or chrome
+    } else if (window.webkitURL !== undefined) { // webkit or chrome
       url = window.webkitURL.createObjectURL(file);
     }
     return url;
@@ -178,6 +170,8 @@
     var product_name = $('#product_name').val();
     var product_person = $('#product_person').val();
     var product_time = $('#product_time').val();
+    var product_area = $('#product_area').val();
+    var product_aubtting = $('#product_aubtting').val();
 
 
     var channel_name = $('#channel_name').val();
@@ -186,23 +180,38 @@
     var channel_email = $('#channel_email').val();
     var channel_duty = $('#channel_duty').val();
     var channel_info = $('#channel_info').val();
+    var channel_special = $('#channel_special').val();
+    var channel_swot = $('#channel_swot').val();
+    var channel_up = $('#channel_up').val();
+    var channel_back = $('#channel_back').val();
 
     formdata.append('product_type',product_type);
     formdata.append('product_org',product_org);
     formdata.append('product_name',product_name);
     formdata.append('product_person',product_person);
+    formdata.append('product_aubtting',product_aubtting);
     formdata.append('product_time',product_time);
+    formdata.append('product_area',product_area);
 
     formdata.append('channel_name',channel_name);
     formdata.append('channel_phone',channel_phone);
     formdata.append('channel_weixin',channel_weixin);
     formdata.append('channel_email',channel_email);
     formdata.append('channel_duty',channel_duty);
+    formdata.append('channel_up',channel_up);
+    formdata.append('channel_back',channel_back);
+    formdata.append('channel_swot',channel_swot);
+    formdata.append('channel_special',channel_special);
     formdata.append('channel_info',channel_info);
 
     var file = $('#upFile')[0].files[0];
 
     formdata.append('file',file);
+
+    // noinspection JSAnnotator
+    for(var pair of formdata.entries()) {
+      console.log(pair[0]+ ', '+ pair[1]);
+    }
 
   })
 </script>
