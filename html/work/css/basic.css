@@ -42,6 +42,7 @@ body {
   clear: both;
   display: table;
 }
+
 .container,
 .row ,
 [class *= 'col-'] {

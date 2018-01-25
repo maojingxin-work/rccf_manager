@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>产品筛选</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="stylesheet" href="css/product_match.css">
+</head>
+<body>
+<div class="container">
+  <div class="row">
+
+    <div class="col-10">
+      <span data-loan-type="1" class="option">抵押</span>
+      <span data-loan-type="2" class="option">质押</span>
+      <span data-loan-type="3" class="option">信贷</span>
+    </div>
+    <div data-type="1" class="diya hide">
+      <div class="col-33">
+        <span class="option ">二抵</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">个人消费</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">企业经营</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">近郊</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">远郊</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">有公司</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">商业楼</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">办公楼</span>
+      </div>
+    </div>
+
+    <div data-type="2" class="zhiya hide">
+      <div class="col-33">
+        <span class="option ">二抵</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">一年以内</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">一年以上</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">1000万以内</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">1000万以上</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">远郊</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">近郊</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">商业楼</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">办公楼</span>
+      </div>
+    </div>
+
+    <div data-type="3" class="xindai hide">
+      <div class="col-33">
+        <span class="option ">保单</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">工薪</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">房产贷</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">社保公积金</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">月供车</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">全款车</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">企业</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">银行</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">机构</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">有上扣</span>
+      </div>
+      <div class="col-33">
+        <span class="option ">无上扣</span>
+      </div>
+    </div>
+
+    <div class="col-10 product">
+      <div class="col-2">
+        <img src="img/ZSYH.jpg">
+      </div>
+      <div class="col-8">
+        <h1> 招商银行 -- 保单贷</h1>
+      </div>
+    </div>
+    <div class="col-10 product">
+      <div class="col-2">
+        <img src="img/PAPH.jpg">
+      </div>
+      <div class="col-8 ">
+        <h1> 平安普惠 -- 工薪贷</h1>
+      </div>
+    </div>
+    <div class="col-10 product">
+      <div class="col-2">
+        <img src="img/PAYH.jpg">
+      </div>
+      <div class="col-8">
+        <h1> 平安银行 -- 神灯贷</h1>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script src="js/self_adaption.js"></script>
+<script src="js/jquery.js"></script>
+
+<script>
+  $('[data-loan-type]').click(function () {
+
+    var loanType = this.dataset.loanType;
+
+    var str = '[data-type='+loanType+']';
+
+    $('[data-loan-type]').removeClass('selected');
+    $(this).addClass('selected');
+
+    $('[data-type]').addClass('hide');
+    $(str).removeClass('hide');
+
+  })
+</script>
+</body>
+</html>
