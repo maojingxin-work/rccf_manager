@@ -6,7 +6,7 @@
   <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
   <link rel="stylesheet" href="css/normalize.css">
   <link rel="stylesheet" href="css/basic.css">
-  <link rel="stylesheet" href="css/index.css">
+  <link rel="stylesheet" href="css/more.css">
 
 </head>
 <body>
@@ -15,83 +15,88 @@
   <div class="container">
     <div class="row">
       <div data-nav-bar="1" class="col-5 nav-bar active">
-        待办事项
+        通知
         <sup>11</sup>
       </div>
       <div data-nav-bar="2" class="col-5 nav-bar">已办事项</div>
     </div>
     <ul data-nav="1" class=" nav-block ">
       <li class="notice">
-        <span>客户小王八蛋来找你了，快到前台来啊---速度</span>
+        <span>张三客户受理单已生成</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
       <li class="notice">
-        <span>客户小王八蛋来找你了，快到前台来啊---速度</span>
+        <span>李四客户受理单已生成</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
       <li class="notice">
-        <span>客户小王八蛋来找你了，快到前台来啊---速度</span>
+        <span>王五客户受理单已生成</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
       <li class="notice">
-        <span>客户小王八蛋来找你了，快到前台来啊---速度</span>
+        <span>赵六客户受理单信息有误</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
       <li class="notice">
-        <span>客户小王八蛋来找你了，快到前台来啊---速度</span>
+        <span>钱七客户受理单信息有误</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice-all">查看全部 >></li>
+      <li class="notice">
+        <span>宋八客户受理单进行受理</span>
+        <label>11-01</label>
+        <label>11:01</label>
+      </li>
     </ul>
     <ul data-nav="2" class="nav-block hide">
-      <li class="notice">
-        <span>客户小栗子蛋来找你了，快到前台来啊---速度</span>
+      <li class="notice done">
+        <span>张三客户受理单已生成</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice">
-        <span>客户小栗子蛋来找你了，快到前台来啊---速度</span>
+      <li class="notice done">
+        <span>李四客户受理单已生成</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice">
-        <span>客户小栗子蛋来找你了，快到前台来啊---速度</span>
+      <li class="notice done">
+        <span>王五客户受理单已生成</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice">
-        <span>客户小栗子蛋来找你了，快到前台来啊---速度</span>
+      <li class="notice done">
+        <span>赵六客户受理单信息有误</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice">
-        <span>客户小栗子蛋来找你了，快到前台来啊---速度</span>
+      <li class="notice done">
+        <span>钱七客户受理单信息有误</span>
         <label>11-01</label>
         <label>11:01</label>
       </li>
-      <li class="notice-all">查看全部 >></li>
+      <li class="notice done">
+        <span>宋八客户受理单进行受理</span>
+        <label>11-01</label>
+        <label>11:01</label>
+      </li>
     </ul>
-  </div>
 
-  <div class="personal-customer">
-    个人客户管理
   </div>
 
 </div>
 
 <div class="tab-bar">
   <div class="row ">
-    <div class="col-33 tab-bar-on">
-      <img src="img/index_on.jpg">
+    <div class="col-33 ">
+      <img src="img/data.png">
       <p>个人</p>
     </div>
-    <div class="col-33">
-      <img src="img/data.png">
+    <div class="col-33 tab-bar-on">
+      <img src="img/index_on.jpg">
       <p>受理</p>
     </div>
     <div class="col-33">
@@ -125,9 +130,6 @@
     }
   });
 
-  $('.personal-customer').click(function () {
-    window.location.href = 'customer.html'
-  })
 </script>
 </body>
 </html>
