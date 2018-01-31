@@ -1,0 +1,359 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>数据统计</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/basic.css">
+</head>
+<body>
+<div>
+  <!--<div id="main" style="height:400px; width: 400px;"></div>-->
+  <div id="main_2" style="height:400px; width: 400px;"></div>
+</div>
+
+
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script>
+  // 路径配置
+  require.config({
+    paths: {
+      echarts: 'http://echarts.baidu.com/build/dist'
+    }
+  });
+
+
+  //  // 使用
+  //  require(
+  //      [
+  //        'echarts',
+  //        'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+  //        'echarts/chart/pie', // 使用饼图就加载pie模块，按需加载
+  //        'echarts/chart/funnel' // 使用漏斗图就加载funnel模块，按需加载
+  //      ],
+  //      function (ec) {
+  //        // 基于准备好的dom，初始化echarts图表
+  //        var myChart = ec.init(document.getElementById('main'));
+  //
+  //
+  //        var option = {
+  //          title: {
+  //            text: '本月受理单情况',
+  //            subtext: '2017-12',
+  //            x: '20'
+  //          },
+  //          tooltip: {
+  //            trigger: 'item',
+  //            formatter: "{b} : {c} "
+  //          },
+  //          legend: {
+  //            x: 'center',
+  //            y: 'bottom',
+  //            data: ['受理', '办结', '拒单', '撤单']
+  //          },
+  //          toolbox: {
+  //            show: true,
+  //            feature: {
+  //              mark: {show: false},
+  //              dataView: {show: false, readOnly: false},
+  //              magicType: {
+  //                show: true,
+  //                type: ['pie', 'funnel']
+  //              },
+  //              restore: {show: false},
+  //              saveAsImage: {show: true}
+  //            }
+  //          },
+  //          calculable: true,
+  //          series: [
+  //            {
+  //              name: '受理单情况',
+  //              type: 'pie',
+  //              radius: [30, 110],
+  //              center: ['50%', 200],
+  //              roseType: 'area', //南丁格尔玫瑰图 面积模式
+  //              x: '80',               // for funnel
+  //              max: 260,                // for funnel
+  //              sort: 'ascending',     // for funnel
+  //              data: [
+  //                {value: 2, name: '拒单'},
+  //
+  //                {value: 100, name: '办结'},
+  //                {value: 244, name: '受理'},
+  //                {value: 25, name: '撤单'}
+  //              ]
+  //            }
+  //          ]
+  //        };
+  //
+  //        // 为echarts对象加载数据
+  //        myChart.setOption(option);
+  //      }
+  //  );
+  //  require(
+  //      [
+  //        'echarts',
+  //        'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+  //        'echarts/chart/pie', // 使用饼图就加载pie模块，按需加载
+  //        'echarts/chart/funnel' // 使用漏斗图就加载funnel模块，按需加载
+  //      ],
+  //      function (ec) {
+  //        // 基于准备好的dom，初始化echarts图表
+  //        var myChart = ec.init(document.getElementById('main_1'));
+  //
+  //        var option = {
+  //          title: {
+  //            text: '某地区蒸发量和降水量',
+  //            subtext: '纯属虚构',
+  //            x: 'left'
+  //          },
+  //          tooltip: {
+  //            trigger: 'axis'
+  //          },
+  //          legend: {
+  //            data: ['量'],
+  //            x: 'center',
+  //            y: 'bottom'
+  //          },
+  //          toolbox: {
+  //            show: true,
+  //            feature: {
+  //              mark: {show: false},
+  //              dataView: {show: false, readOnly: false},
+  //              magicType: {show: true, type: ['line', 'bar']},
+  //              restore: {show: false},
+  //              saveAsImage: {show: true}
+  //            }
+  //          },
+  //          calculable: true,
+  //          xAxis: [
+  //            {
+  //              type: 'category',
+  //              data: ['受理', '办结', '拒单', '撤单']
+  //            }
+  //          ],
+  //          yAxis: [
+  //            {
+  //              type: 'value'
+  //            }
+  //          ],
+  //          series: [
+  //            {
+  //              name: '量',
+  //              type: 'bar',
+  //              data: [244, 10, 32, 100],
+  //              markPoint: {
+  //                data: [
+  //                  {type: 'max', name: '最大值'},
+  //                  {type: 'min', name: '最小值'}
+  //                ]
+  //              },
+  //              markLine: {
+  //                data: [
+  //                  {type: 'average', name: '平均值'}
+  //                ]
+  //              }
+  //            }
+  //          ]
+  //        };
+  //
+  //
+  //        // 为echarts对象加载数据
+  //        myChart.setOption(option);
+  //      }
+  //  );
+
+
+  var dataStyle = {
+    normal: {
+      label: {show: false},
+      labelLine: {show: false}
+    }
+  };
+  var placeHolderStyle = {
+    normal: {
+      color: 'rgba(0,0,0,0)',
+      label: {show: false},
+      labelLine: {show: false}
+    },
+    emphasis: {
+      color: 'rgba(0,0,0,0)'
+    }
+  };
+  require(
+      [
+        'echarts',
+        'echarts/chart/bar', // 使用柱状图就加载bar模块，按需加载
+        'echarts/chart/pie', // 使用饼图就加载pie模块，按需加载
+        'echarts/chart/funnel' // 使用漏斗图就加载funnel模块，按需加载
+      ],
+      function (ec) {
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = ec.init(document.getElementById('main_2'));
+
+        var option = {
+          title: {
+            text: '本月受理办结',
+            subtext: '2017-12',
+            x: 'center',
+            y: 'center',
+            itemGap: 20,
+            textStyle: {
+              color: 'rgba(30,144,255,0.8)',
+              fontFamily: '微软雅黑',
+              fontSize: 20,
+              fontWeight: 'bolder'
+            }
+          },
+          tooltip: {
+            show: true,
+            formatter: "{a} <br/>{b} : {c} ({d}%)"
+          },
+          legend: {
+            orient: 'vertical',
+            x: document.getElementById('main_2').offsetWidth / 2 + 20,
+            y: '50',
+            itemGap: 12,
+//            backgroundColor:{},
+            data: ['受理', '办结', '拒单', '撤单']
+          },
+          toolbox: {
+            show: false,
+            feature: {
+              mark: {show: false},
+              dataView: {show: false, readOnly: false},
+              restore: {show: false},
+              saveAsImage: {show: false}
+            }
+          },
+          series: [
+            {
+              name: '受理',
+              type: 'pie',
+              clockWise: false,
+              radius: [125, 150],
+              itemStyle: dataStyle,
+              data: [
+                {
+                  value: 68,
+                  name: '受理单量',
+                  itemStyle: {
+                    normal: {
+                      color: 'rgba(131,170,240,0.8)',
+                      label: {show: false},
+                      labelLine: {show: false}
+                    }
+                  }
+                },
+                {
+                  value: 32,
+                  name: 'invisible',
+                  itemStyle: placeHolderStyle
+                }
+              ]
+            },
+            {
+              name: '办结',
+              type: 'pie',
+              clockWise: false,
+              radius: [100, 125],
+              itemStyle: dataStyle,
+              data: [
+                {
+                  value: 29,
+                  name: '办结单量',
+                  itemStyle: {
+                    normal: {
+                      color: 'rgba(199,119,219,0.8)',
+                      label: {show: false},
+                      labelLine: {show: false}
+                    },
+                    emphasis: {
+                      color: 'rgba(199,119,219,0.8)'
+                    }
+
+                  }
+                },
+                {
+                  value: 71,
+                  name: 'invisible',
+                  itemStyle: placeHolderStyle
+                }
+              ]
+            },
+            {
+              name: '拒单',
+              type: 'pie',
+              clockWise: false,
+              radius: [75, 100],
+              itemStyle: dataStyle,
+              data: [
+                {
+                  value: 3,
+                  name: '拒单量',
+                  itemStyle: {
+                    normal: {
+                      color: 'rgba(215,124,124,0.8)',
+                      label: {show: false},
+                      labelLine: {show: false}
+                    },
+                    emphasis: {
+                      color: 'rgba(215,124,124,0.8)'
+                    }
+                  }
+                },
+                {
+                  value: 97,
+                  name: 'invisible',
+                  itemStyle: placeHolderStyle
+                }
+              ]
+            },
+            {
+              name: '撤单',
+              type: 'pie',
+              clockWise: false,
+              radius: [50, 70],
+              itemStyle: dataStyle,
+              data: [
+                {
+                  value: 3,
+                  name: '撤单量',
+                  itemStyle: {
+                    normal: {
+                      color: 'rgba(255,183,51,0.8)',
+                      label: {show: false},
+                      labelLine: {show: false}
+                    },
+                    emphasis: {
+                      color: 'rgba(255,183,51,0.8)'
+                    }
+                  }
+                },
+                {
+                  value: 97,
+                  name: 'invisible',
+                  itemStyle: placeHolderStyle
+                }
+              ]
+            }
+          ],
+          color: [
+            'rgba(131,170,240,0.8)',
+            'rgba(199,119,219,0.8)',
+            'rgba(215,124,124,0.8)',
+            'rgba(255,183,51,0.8)'
+          ]
+        };
+
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+      }
+  );
+
+
+</script>
+</body>
+</html>

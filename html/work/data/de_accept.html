@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>各部门受理单统计</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/basic.css">
+  <link rel="stylesheet" href="../css/de_data.css">
+  <link rel="stylesheet" href="../css/font-awesome.css">
+</head>
+<body>
+<div class="container">
+  <header>
+    <h3 data-depart-id="1" class=""><span class="left">&lt;</span>金融一部<span class="right">&gt;</span></h3>
+    <h3 data-depart-id="2" class="hide"><span class="left">&lt;</span>金融二部<span class="right">&gt;</span></h3>
+    <h3 data-depart-id="3" class="hide"><span class="left">&lt;</span>金融三部<span class="right">&gt;</span></h3>
+    <h3 data-depart-id="4" class="hide"><span class="left">&lt;</span>金融渠道部<span class="right">&gt;</span></h3>
+  </header>
+
+  <div data-depart="1" class="">
+    <div class="apply">
+      <div class="row">
+        <div class="col-33">
+          <p>123</p>
+          <p>受理</p>
+        </div>
+        <div class="col-33">
+          <p>60</p>
+          <p>办结</p>
+        </div>
+        <div class="col-33">
+          <p>10</p>
+          <p>拒单/撤单</p>
+        </div>
+      </div>
+    </div>
+    <div id="depart_one" class="my-canvas">
+
+    </div>
+    <div class="row">
+      <div class="col-10 success">
+        <p>刘彩芳组</p>
+        <p>受理：1000</p>
+        <p>办结：1000</p>
+      </div>
+      <div class="col-10 success">
+        <p>刘彩芳组</p>
+        <p>受理：1000</p>
+        <p>办结：1000</p>
+      </div>
+    </div>
+  </div>
+
+  <div data-depart="2" class="hide">
+    <div id="depart_two" class="my-canvas">
+
+    </div>
+    <div class="row">
+      <div class="col-10 success">
+        <p>刘彩芳</p>
+        <p>目标业绩：90000</p>
+        <p>完成业绩：90000</p>
+      </div>
+      <div class="col-10 failed">
+        <p>刘彩芳</p>
+        <p>目标业绩：90000</p>
+        <p>完成业绩：8000</p>
+      </div>
+    </div>
+  </div>
+
+  <div data-depart="3" class="hide">
+
+    <div id="depart_three" class="my-canvas">
+
+    </div>
+    <div class="row">
+      <div class="col-10 success">
+        <p>刘彩芳</p>
+        <p>目标业绩：90000</p>
+        <p>完成业绩：90000</p>
+      </div>
+      <div class="col-10 failed">
+        <p>刘彩芳</p>
+        <p>目标业绩：90000</p>
+        <p>完成业绩：8000</p>
+      </div>
+    </div>
+  </div>
+
+  <div data-depart="4" class="hide">
+    <div id="depart_four" class="my-canvas">
+
+    </div>
+    <div class="row">
+      <div class="col-10 success">
+        <p>刘彩芳组</p>
+        <p>受理：1000</p>
+        <p>办结：1000</p>
+      </div>
+      <div class="col-10 success">
+        <p>刘彩芳组</p>
+        <p>受理：1000</p>
+        <p>办结：1000</p>
+      </div>
+    </div>
+
+
+  </div>
+
+</div>
+
+<script src="../js/self_adaption.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script>
+  $('.right').click(function () {
+    var hNode = this.parentNode;
+    var departId = parseInt(hNode.dataset.departId);
+
+    if (departId === 4) {
+      departId = 1;
+    } else {
+      departId++;
+    }
+
+    var str = '[data-depart-id=' + departId + ']';
+    var htm = '[data-depart=' + departId + ']';
+
+    $('[data-depart-id]').addClass('hide');
+    $('[data-depart]').addClass('hide');
+
+    $(str).removeClass('hide');
+    $(htm).removeClass('hide');
+
+  });
+
+  $('.left').click(function () {
+    var hNode = this.parentNode;
+    var departId = parseInt(hNode.dataset.departId);
+
+    if (departId === 1) {
+      departId = 4;
+    } else {
+      departId--;
+    }
+
+    var str = '[data-depart-id=' + departId + ']';
+    var htm = '[data-depart=' + departId + ']';
+
+    $('[data-depart-id]').addClass('hide');
+    $('[data-depart]').addClass('hide');
+
+    $(str).removeClass('hide');
+    $(htm).removeClass('hide');
+
+  });
+
+
+  // 路径配置
+  require.config({
+    paths: {
+      echarts: 'http://echarts.baidu.com/build/dist'
+    }
+  });
+
+  require(
+      [
+        'echarts',
+        'echarts/chart/pie' // 使用饼图就加载pie模块，按需加载
+      ],
+      function (ec) {
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = ec.init(document.getElementById('depart_one'));
+
+        var option = {
+          title : {
+            text: '本月各类型受理单统计',
+            x:'center',
+            y:'20'
+          },
+          legend: {
+            orient: 'vertical',
+            x: '220',
+            y: '200',
+            data: ['抵押 335', '质押 335','信贷 335','其他 335']
+          },
+
+          calculable : true,
+          series : [
+            {
+              name:'受理中各类型受理单统计',
+              type:'pie',
+              radius : '55%',
+              center: ['40%', '50%'],
+              itemStyle: {
+                normal: {
+                  label: {
+                    show: false
+                  },
+                  labelLine: {
+                    show: false
+                  }
+                },
+                emphasis: {
+                  label: {
+                    show: true,
+                    position: 'center',
+                    textStyle: {
+                      fontSize: '30',
+                      fontWeight: 'bold'
+                    }
+                  }
+                }
+              },
+              data:[
+                {value:335, name:'抵押 335'},
+                {value:40, name:'质押 335'},
+                {value:234, name:'信贷 335'},
+                {value:135, name:'其他 335'}
+              ]
+            }
+          ]
+        };
+
+
+
+        // 为echarts对象加载数据
+        myChart.setOption(option);
+      }
+  );
+</script>
+</body>
+</html>

@@ -1,0 +1,252 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>受理单</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="css/normalize.css">
+  <link rel="stylesheet" href="css/basic.css">
+  <link rel="stylesheet" href="css/acceptance.css">
+  <link rel="stylesheet" href="css/font-awesome.css">
+  <style type="text/css">
+    a:link, a:visited {
+      text-decoration: none; /*超链接无下划线*/
+    }
+
+    a:hover {
+      text-decoration: none; /*鼠标放上去有下划线*/
+    }
+
+    .top-info {
+      display: block;
+      position: absolute;
+      top: -0.15rem;
+      right: 0.6rem;
+
+      width: 0.5rem;
+      height:0.5rem;
+
+      padding-top: 0.1rem;
+      background-color: #a4241f;
+      color:#fff;
+      border-radius: 50%;
+
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+<div class="container">
+  <div class="row">
+    <div data-nav-number="1" class="col-25 panel panel-on">
+      销售中心
+    </div>
+    <div data-nav-number="2" class="col-25 panel">
+      产品中心
+    </div>
+    <div data-nav-number="3" class="col-25 panel">
+      受理中心
+    </div>
+    <div data-nav-number="4" class="col-25 panel">
+      财务中心
+    </div>
+  </div>
+
+
+  <div class="txt-hint">
+    <i class="fa fa-exclamation-triangle "></i> 这里是信息 <br>
+    <a>需要跳转的地方</a>
+  </div>
+
+
+  <div data-nav="1" class="apply-list">
+    <fieldset >
+      <table class="b-table">
+        <caption>客户信息</caption>
+        <tr>
+          <td>客户姓名</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>手机号码</td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+        <tr>
+          <td>身份证号</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>业务类别</td>
+          <td>
+            <select>
+              <option value="0">未知</option>
+              <option value="1">抵押</option>
+              <option value="2">质押</option>
+              <option value="3">信贷</option>
+            </select>
+          </td>
+        </tr>
+        <tr>
+          <td>预贷金额</td>
+          <td>
+            <input type="number">万
+          </td>
+        </tr>
+        <tr>
+          <td>服务费比例</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+      </table>
+
+      <table class="b-table">
+        <caption>销售信息</caption>
+        <tr>
+          <td>销售经理</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>副总监</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>总监</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+      </table>
+
+
+    </fieldset>
+
+    <div class="container a-margin-top">
+      <div class="row">
+        <p>附件信息</p>
+        <div class="col-33">
+          <img onclick="bigger(this)" class="" src="img/add.png">
+        </div>
+        <div class="col-33">
+          <img onclick="bigger(this)" class="" src="img/add.png">
+        </div>
+        <div class="col-33">
+          <img onclick="bigger(this)" class="" src="img/add.png">
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div data-nav="2" class="apply-list hide">
+    <fieldset >
+      <table class="b-table">
+        <caption>产品信息</caption>
+        <tr>
+          <td>受理方案</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>渠道费用</td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+        <tr>
+          <td>材料费</td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+        <tr>
+          <td>三方费用</td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </div>
+  <div data-nav="3" class="apply-list hide">
+    <fieldset >
+      <table class="b-table">
+        <caption>受理单信息</caption>
+        <tr>
+          <td>产品编号</td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>受理单号</td>
+          <td>
+            <input type="number">
+          </td>
+        </tr>
+        <tr>
+          <td>受理日期</td>
+          <td>
+            <input type="date">
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </div>
+  <div data-nav="4" class="apply-list hide">
+    <fieldset >
+      <table class="b-table">
+        <caption>收支信息</caption>
+        <tr>
+          <td>
+            <input type="text" placeholder="收支项目名称">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" placeholder="收支项目名称">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+        <tr>
+          <td>
+            <input type="text" placeholder="收支项目名称">
+          </td>
+          <td>
+            <input type="text">
+          </td>
+        </tr>
+      </table>
+    </fieldset>
+  </div>
+
+
+  <div class="popup hide">
+    <img src="img/third.png">
+  </div>
+
+
+</div>
+
+
+<script src="js/self_adaption.js"></script>
+<script src="https://cdn.bootcss.com/jquery/3.3.1/jquery.js"></script>
+<script src="js/nav.js"></script>
+
+</body>
+</html>

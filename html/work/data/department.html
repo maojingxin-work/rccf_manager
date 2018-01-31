@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>各部门业绩</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/basic.css">
+  <link rel="stylesheet" href="../css/director.css">
+  <link rel="stylesheet" href="../css/font-awesome.css">
+</head>
+<body>
+
+
+
+
+<script src="../js/self_adaption.js"></script>
+<script src="../js/jquery.js"></script>
+<script src="http://echarts.baidu.com/build/dist/echarts.js"></script>
+<script>
+  // 路径配置
+  require.config({
+    paths: {
+      echarts: 'http://echarts.baidu.com/build/dist'
+    }
+  });
+  //  金融一部业绩
+  require(
+      [
+        'echarts',
+        'echarts/chart/pie' // 使用柱状图就加载bar模块，按需加载
+      ],
+      function (et) {
+        // 基于准备好的dom，初始化echarts图表
+        var myChart = et.init(document.getElementById('month_apply'));
+
+        var option = {
+
+          calculable: false,
+          series: [
+            {
+              name: '访问来源',
+              type: 'pie',
+              radius: '55%',
+              center: ['50%', '60%'],
+              data: [
+                {value: 20, name: '抵押 20'},
+                {value: 30, name: '质押 30'},
+                {value: 123, name: '信贷 123'}
+              ]
+            }
+          ]
+        };
+        myChart.setOption(option);
+      }
+  );
+</script>
+</body>
+</html>

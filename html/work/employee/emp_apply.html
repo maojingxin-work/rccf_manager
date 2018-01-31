@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>受理信息</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/basic.css">
+  <link rel="stylesheet" href="../css/emp_apply.css">
+  <style type="text/css">
+    a:link, a:visited {
+      text-decoration: none; /*超链接无下划线*/
+    }
+
+    a:hover {
+      text-decoration: none; /*鼠标放上去有下划线*/
+    }
+
+    .top-info {
+      display: block;
+      position: absolute;
+      top: -0.15rem;
+      right: 0.6rem;
+
+      width: 0.5rem;
+      height:0.5rem;
+
+      padding-top: 0.1rem;
+      background-color: #a4241f;
+      color:#fff;
+      border-radius: 50%;
+
+      box-sizing: border-box;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <div class="head">
+      <a>提交新受理单</a>
+    </div>
+
+    <div class="apply-pro">
+      <div class="apply-title">
+        <span>2018-03-01</span>
+        <span>14:23:23</span>
+      </div>
+      <div class="apply-message">
+        <p>
+          提交客户张三的受理单
+        </p>
+      </div>
+    </div>
+
+    <div class="apply-pro">
+      <div class="apply-title">
+        <span>2018-03-01</span>
+        <span>14:23:23</span>
+      </div>
+      <div class="apply-message danger">
+        <p>
+          客户张三的受理单被席映雪退回<br>
+          原因：缺少户口本等资料
+        </p>
+      </div>
+    </div>
+    <div class="apply-pro">
+      <div class="apply-title">
+        <span>2018-03-01</span>
+        <span>14:23:23</span>
+      </div>
+      <div class="apply-message done">
+        <p>
+          提交客户张三的受理单
+        </p>
+      </div>
+    </div>
+  </div>
+
+  <div class="tab-bar">
+    <div class="row ">
+      <a class="col-25 " style="border: none;">
+        <img src="../img/index.png">
+        <p style="color:#999;border: none;">个人</p>
+      </a>
+      <a class="col-25 tab-bar-on" style="border: none;">
+        <img src="../img/apply_on.png">
+        <p style="color:#4d5398;border: none;">受理信息</p>
+
+        <span class="top-info">10</span>
+      </a>
+      <a class="col-25" href="/gzh/rank/index" style="border: none;">
+        <img src="../img/rank.png">
+        <p style="color:#999;border: none;">排行榜</p>
+      </a>
+      <a class="col-25" href="/gzh/sales/page/data" style="border: none;">
+        <img src="../img/data.png">
+        <p style="color:#999;border: none;">数据统计</p>
+      </a>
+    </div>
+  </div>
+  <script src="../js/self_adaption.js"></script>
+  <script src="../js/jquery.js"></script>
+</body>
+</html>
