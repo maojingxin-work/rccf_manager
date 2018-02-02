@@ -13,6 +13,30 @@
 
 <div class="container">
   <div class="product">
+    <div class="apply-list">
+        <table class="b-table">
+          <caption>费用信息</caption>
+          <tr>
+            <td>渠道费用</td>
+            <td>
+              <input id="qudaoFee" type="text">
+            </td>
+          </tr>
+          <tr>
+            <td>三方费用</td>
+            <td>
+              <input id="sanfangFee" type="text">
+            </td>
+          </tr>
+          <tr>
+            <td>材料费用</td>
+            <td>
+              <input id="cailiaoFee" type="text">
+            </td>
+          </tr>
+        </table>
+    </div>
+
     <div class="add-btn">
       <span>填写受理方案</span>
     </div>
@@ -20,29 +44,79 @@
       <input type="text" id="name" placeholder="产品名称">
 
       <div class="txt-hint hide">
-        <span onclick="selectBank(this)">中信银行</span>
-        <span onclick="selectBank(this)">新天地</span>
-        <span onclick="selectBank(this)">车易贷</span>
-        <span onclick="selectBank(this)">房易贷</span>
-        <span onclick="selectBank(this)">招商银行</span>
+        <span data-product-id="1" onclick="selectBank(this)">中信银行-宅e贷</span>
       </div>
     </div>
 
     <div class="add-pro">
-      <span onclick="deleteBank(this)">中心银行-宅e贷<i class="fa fa-times"></i></span>
-      <span onclick="deleteBank(this)">中心银行-宅e贷<i class="fa fa-times"></i></span>
-      <span onclick="deleteBank(this)">中心银行<i class="fa fa-times"></i></span>
-      <span onclick="deleteBank(this)">中心银行<i class="fa fa-times"></i></span>
-      <span onclick="deleteBank(this)">宅e贷<i class="fa fa-times"></i></span>
-      <span onclick="deleteBank(this)">中心银行-宅e贷<i class="fa fa-times"></i></span>
+      <span data-product-id="1" onclick="deleteBank(this)">中信银行-宅e贷<i class="fa fa-times"></i></span>
+    </div>
+
+
+    <div class="a-btns">
+      <button id="lack" class="a-btn a-btn-wrong col-5">缺少资料</button>
+      <button id="submit" class="a-btn a-btn-success col-5">确认提交</button>
     </div>
   </div>
+
+
+  <div class="pro-data hide">
+    <textarea id="lackData" autofocus="autofocus" placeholder="填写缺少的资料……" cols="35" rows="5"></textarea>
+    <button id="lackSubmit" class="a-btn b-btn">退回受理单</button>
+  </div>
+
+
 </div>
 
 
 <script src="../js/self_adaption.js"></script>
 <script src="../js/jquery.js"></script>
 <script>
+  // 提交受理单
+  $('#submit').click(function () {
+    var jsonObj = {};
+    var productArr =[];
+      $('.add-pro span').each(function () {
+        var productId = this.dataset.productId;
+        productArr.push(productId);
+      });
+    console.log(productArr);
+      jsonObj.qudaoFee = $('#qudaoFee').val();
+      jsonObj.sanfangFee = $('#sanfangFee').val();
+      jsonObj.cailiaoFee = $('#cailiaoFee').val();
+      jsonObj.products = productArr;
+      
+      $.ajax({
+        url:'',
+        data:jsonObj,
+        dataType:'json',
+        success:function () {
+          
+        }
+      })
+  });
+
+  // 退回受理单
+  $('#lackSubmit').click(function () {
+      var lackData = $('#lackData').val();
+
+      $.ajax({
+        url:'',
+        data:{'lackData':lackData},
+        dataType:'json',
+        success:function () {
+          
+        }
+      })
+  });
+
+  // 去填写缺少的资料
+  $('#lack').click(function () {
+    $('.product').addClass('hide');
+    $('.pro-data').removeClass('hide');
+  });
+
+  // 输入提示功能
   $('#name').on('keyup', function () {
 
     var val = this.value;
@@ -74,15 +148,19 @@
 
   });
 
+  // 选择产品功能
   function selectBank(obj) {
     var name = obj.innerHTML;
-    var str = '<span onclick="deleteBank(this)">' + name + '<i class="fa fa-times"></i></span>';
+    var productId = obj.dataset.productId;
+
+    var str = '<span data-product-id="'+productId+'" onclick="deleteBank(this)">' + name + '<i class="fa fa-times"></i></span>';
 
     $('.txt-hint').addClass('hide');
     $('#name').val('');
     $('.add-pro').append(str);
   }
 
+  // 删除产品功能
   function deleteBank(obj) {
     var dNode = obj.parentNode;
 
