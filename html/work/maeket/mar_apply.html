@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>客户信息填写</title>
+  <meta name="viewport" content="width=device-width,user-scalable=no,initial-scale=1">
+  <link rel="stylesheet" href="../css/normalize.css">
+  <link rel="stylesheet" href="../css/basic.css">
+  <link rel="stylesheet" href="../css/mar_apply.css">
+  <link rel="stylesheet" href="../css/font-awesome.css">
+</head>
+<body>
+
+<div class="container">
+  <div class="product">
+    <div class="add-btn">
+      <span>填写受理方案</span>
+    </div>
+    <div class="add-form">
+      <input type="text" id="name" placeholder="产品名称">
+
+      <div class="txt-hint hide">
+        <span onclick="selectBank(this)">中信银行</span>
+        <span onclick="selectBank(this)">新天地</span>
+        <span onclick="selectBank(this)">车易贷</span>
+        <span onclick="selectBank(this)">房易贷</span>
+        <span onclick="selectBank(this)">招商银行</span>
+      </div>
+    </div>
+
+    <div class="add-pro">
+      <span onclick="deleteBank(this)">中心银行-宅e贷<i class="fa fa-times"></i></span>
+      <span onclick="deleteBank(this)">中心银行-宅e贷<i class="fa fa-times"></i></span>
+      <span onclick="deleteBank(this)">中心银行<i class="fa fa-times"></i></span>
+      <span onclick="deleteBank(this)">中心银行<i class="fa fa-times"></i></span>
+      <span onclick="deleteBank(this)">宅e贷<i class="fa fa-times"></i></span>
+      <span onclick="deleteBank(this)">中心银行-宅e贷<i class="fa fa-times"></i></span>
+    </div>
+  </div>
+</div>
+
+
+<script src="../js/self_adaption.js"></script>
+<script src="../js/jquery.js"></script>
+<script>
+  $('#name').on('keyup', function () {
+
+    var val = this.value;
+    var txtHint = $('.txt-hint');
+
+    console.log(val);
+    if (val === " " || val === "") {
+      txtHint.addClass('hide');
+    }
+    else {
+
+      $.ajax({
+        url: '',
+        data: {'val': val},
+        dataType: 'json',
+        success: function (result) {
+          var dat = result.data;
+          var str = '';
+          for (var i = 0; i < dat.length; i++) {
+            var pro = data[i];
+            str +='<span onclick="selectBank(this)">'+pro+'</span>';
+          }
+
+        }
+      });
+
+      txtHint.removeClass('hide');
+    }
+
+  });
+
+  function selectBank(obj) {
+    var name = obj.innerHTML;
+    var str = '<span onclick="deleteBank(this)">' + name + '<i class="fa fa-times"></i></span>';
+
+    $('.txt-hint').addClass('hide');
+    $('#name').val('');
+    $('.add-pro').append(str);
+  }
+
+  function deleteBank(obj) {
+    var dNode = obj.parentNode;
+
+    dNode.removeChild(obj);
+  }
+</script>
+
+</body>
+</html>

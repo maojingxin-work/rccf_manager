@@ -1,0 +1,63 @@
+
+
+html,
+body {
+  background-color: #fff;
+  height: 100%;
+}
+.container {
+  height: 100%;
+}
+
+.add-btn,
+.add-form,
+.add-pro {
+  position: relative;
+  margin-top: 1em;
+  padding-left: 2em;
+
+}
+
+.add-btn a{
+  color:#42bde5;
+}
+
+.add-form input {
+  width: 90%;
+  padding: 0.4em;
+
+  border: 1px solid #999;
+}
+
+.add-pro span {
+  display: inline-block;
+  font-size: 0.45rem;
+  padding: 0.5em;
+  margin-bottom: 1em;
+  margin-right: 0.2em;
+  background-color: #5c4375;
+  color: #fff;
+}
+.add-pro span i {
+  display: inline-block;
+  margin-left: 0.5em;
+  text-align: right;
+}
+
+.txt-hint {
+  position: absolute;
+  width: 86%;
+  top:2.3em;
+  padding-top: 1em;
+  background-color: #fff;
+  color: #666;
+  z-index: 999;
+
+  border: 1px solid #666;
+}
+.txt-hint span {
+  display: block;
+  font-size: 0.5rem;
+  padding-left: 1em;
+  margin-bottom: 0.5em;
+}
